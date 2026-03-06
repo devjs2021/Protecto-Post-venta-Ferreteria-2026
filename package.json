@@ -8,7 +8,6 @@
     "server": "node --env-file=.env --watch server.cjs",
     "dev:full": "concurrently \"npm run server\" \"npm run dev\"",
     "start": "npx prisma generate && npx prisma db push && node server.cjs",
-    "postinstall": "node scripts/prisma-generate.cjs",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
