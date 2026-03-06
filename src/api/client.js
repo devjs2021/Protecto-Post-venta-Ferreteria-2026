@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-    // En producción (Railway) usamos rutas relativas (/api) porque React y Express viven en el mismo host.
-    // En desarrollo local seguimos usando localhost:3001 por los puertos separados.
+    // En desarrollo: localhost:8080 (Express) / localhost:5173 (Vite)
+    // En producción: rutas relativas (/api) o URL configurada en VITE_API_URL
     baseURL: import.meta.env.VITE_API_URL || '/api',
 });
 
