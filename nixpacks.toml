@@ -1,11 +1,2 @@
 [variables]
 NODE_VERSION = "20"
-
-[phases.install]
-cmds = ["npm install --ignore-scripts", "npm rebuild bcrypt better-sqlite3"]
-
-[phases.build]
-cmds = ["npm run build"]
-
-[start]
-cmd = "npm start"
