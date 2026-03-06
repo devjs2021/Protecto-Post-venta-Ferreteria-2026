@@ -70,8 +70,22 @@ const verifyToken = (req, res, next) => {
 // ═══════════════════════════════════════════════════════════════
 // CONFIGURACIÓN DE WHATSAPP (Baileys)
 // ═══════════════════════════════════════════════════════════════
-const { default: makeWASocket, useMultiFileAuthState, DisconnectReason, makeCacheableSignalKeyStore, fetchLatestWaWebVersion } = require('@whiskeysockets/baileys');
-const pino = require('pino');
+// Baileys is ESM-only, load via dynamic import()
+let makeWASocket, useMultiFileAuthState, DisconnectReason, makeCacheableSignalKeyStore, fetchLatestWaWebVersion;
+let pino;
+let baileysLoaded = false;
+
+async function loadBaileys() {
+    if (baileysLoaded) return;
+    const baileys = await import('@whiskeysockets/baileys');
+    makeWASocket = baileys.default;
+    useMultiFileAuthState = baileys.useMultiFileAuthState;
+    DisconnectReason = baileys.DisconnectReason;
+    makeCacheableSignalKeyStore = baileys.makeCacheableSignalKeyStore;
+    fetchLatestWaWebVersion = baileys.fetchLatestWaWebVersion;
+    pino = (await import('pino')).default;
+    baileysLoaded = true;
+}
 
 let whatsappQr = null;
 let whatsappStatus = 'DISCONNECTED'; // DISCONNECTED, CONNECTING, QR_READY, CONNECTED
@@ -217,6 +231,8 @@ function validatePhone(numero) {
 
 async function startWhatsApp() {
     if (whatsappStatus === 'CONNECTING' || whatsappStatus === 'CONNECTED') return;
+
+    await loadBaileys();
 
     // Limpiar socket anterior si existe
     if (waSock) {
