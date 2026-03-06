@@ -58,21 +58,21 @@ export default function Configuracion() {
         <div id="config-root" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div id="config-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div>
-                    <h1 style={{ fontSize: '22px', fontWeight: 700, color: '#1A1A2E' }}>Configuración</h1>
-                    <p style={{ fontSize: '13px', color: '#6B7280', marginTop: '4px' }}>Ajustes del sistema</p>
+                    <h1 style={{ fontSize: '22px', fontWeight: 700, color: '#333333' }}>Configuración</h1>
+                    <p style={{ fontSize: '13px', color: '#666666', marginTop: '4px' }}>Ajustes del sistema</p>
                 </div>
                 <Button icon={Save}>Guardar Cambios</Button>
             </div>
 
-            <div style={{ backgroundColor: '#FFFFFF', border: '1px solid #E2E5EA', borderRadius: '10px', overflow: 'hidden' }}>
+            <div style={{ backgroundColor: '#FFFFFF', border: '1px solid #E0E0E0', borderRadius: '10px', overflow: 'hidden' }}>
                 {/* Tabs */}
-                <div id="config-tabs" style={{ display: 'flex', borderBottom: '2px solid #E2E5EA' }}>
+                <div id="config-tabs" style={{ display: 'flex', borderBottom: '2px solid #E0E0E0' }}>
                     {tabs.map(t => (
                         <button key={t.id} onClick={() => setTab(t.id)} style={{
                             display: 'flex', alignItems: 'center', gap: '8px',
                             padding: '14px 24px', fontSize: '13px', fontWeight: tab === t.id ? 600 : 500,
-                            color: tab === t.id ? '#1E3A5F' : '#6B7280', backgroundColor: 'transparent',
-                            border: 'none', borderBottom: tab === t.id ? '2px solid #1E3A5F' : '2px solid transparent',
+                            color: tab === t.id ? '#F2A900' : '#666666', backgroundColor: 'transparent',
+                            border: 'none', borderBottom: tab === t.id ? '2px solid #F2A900' : '2px solid transparent',
                             marginBottom: '-2px', cursor: 'pointer', transition: 'all 150ms'
                         }}>
                             <t.icon size={16} />{t.label}
@@ -84,9 +84,9 @@ export default function Configuracion() {
                 <div style={{ padding: '28px', maxWidth: (tab === 'whatsapp' || tab === 'roles' || tab === 'cajas' || tab === 'sistema') ? '100%' : '520px' }}>
                     {tab === 'general' && (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '16px 20px', backgroundColor: '#EBF0F7', borderRadius: '10px' }}>
-                                <Globe size={20} style={{ color: '#1E3A5F' }} />
-                                <div><p style={{ fontSize: '13px', fontWeight: 600, color: '#1A1A2E' }}>Configuración General</p><p style={{ fontSize: '11px', color: '#9CA3AF' }}>Ajustes básicos del sistema</p></div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '16px 20px', backgroundColor: '#FFF8E7', borderRadius: '10px' }}>
+                                <Globe size={20} style={{ color: '#F2A900' }} />
+                                <div><p style={{ fontSize: '13px', fontWeight: 600, color: '#333333' }}>Configuración General</p><p style={{ fontSize: '11px', color: '#999999' }}>Ajustes básicos del sistema</p></div>
                             </div>
                             <Select label="Idioma" options={[{ value: 'es', label: 'Español' }, { value: 'en', label: 'English' }]} />
                             <Select label="Zona horaria" options={[{ value: 'America/Bogota', label: 'América/Bogotá (UTC-5)' }, { value: 'America/Mexico_City', label: 'América/Ciudad de México (UTC-6)' }]} />
@@ -97,9 +97,9 @@ export default function Configuracion() {
 
                     {tab === 'empresa' && (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '16px 20px', backgroundColor: '#EBF0F7', borderRadius: '10px' }}>
-                                <Building2 size={20} style={{ color: '#1E3A5F' }} />
-                                <div><p style={{ fontSize: '13px', fontWeight: 600, color: '#1A1A2E' }}>Datos de la Empresa</p><p style={{ fontSize: '11px', color: '#9CA3AF' }}>Información legal y de contacto</p></div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '16px 20px', backgroundColor: '#FFF8E7', borderRadius: '10px' }}>
+                                <Building2 size={20} style={{ color: '#F2A900' }} />
+                                <div><p style={{ fontSize: '13px', fontWeight: 600, color: '#333333' }}>Datos de la Empresa</p><p style={{ fontSize: '11px', color: '#999999' }}>Información legal y de contacto</p></div>
                             </div>
                             <Input label="Razón Social" defaultValue="FERRETERIA LA ESQUINA DEL PROGRESO" />
                             <Input label="NIT" defaultValue="900.123.456-1" />
@@ -114,14 +114,14 @@ export default function Configuracion() {
 
                     {tab === 'impuestos' && (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '16px 20px', backgroundColor: '#EBF0F7', borderRadius: '10px' }}>
-                                <Receipt size={20} style={{ color: '#1E3A5F' }} />
-                                <div><p style={{ fontSize: '13px', fontWeight: 600, color: '#1A1A2E' }}>Impuestos</p><p style={{ fontSize: '11px', color: '#9CA3AF' }}>Tasas y retenciones aplicables</p></div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '16px 20px', backgroundColor: '#FFF8E7', borderRadius: '10px' }}>
+                                <Receipt size={20} style={{ color: '#F2A900' }} />
+                                <div><p style={{ fontSize: '13px', fontWeight: 600, color: '#333333' }}>Impuestos</p><p style={{ fontSize: '11px', color: '#999999' }}>Tasas y retenciones aplicables</p></div>
                             </div>
                             <Select label="IVA General" options={[{ value: '19', label: '19%' }, { value: '5', label: '5%' }, { value: '0', label: '0% — Exento' }]} />
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '14px', backgroundColor: '#F0F2F5', borderRadius: '8px' }}>
-                                <input type="checkbox" id="iva-incl" defaultChecked style={{ width: '18px', height: '18px', accentColor: '#1E3A5F' }} />
-                                <label htmlFor="iva-incl" style={{ fontSize: '13px', color: '#1A1A2E', cursor: 'pointer' }}>Incluir IVA en precio de venta</label>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '14px', backgroundColor: '#F5F5F5', borderRadius: '8px' }}>
+                                <input type="checkbox" id="iva-incl" defaultChecked style={{ width: '18px', height: '18px', accentColor: '#F2A900' }} />
+                                <label htmlFor="iva-incl" style={{ fontSize: '13px', color: '#333333', cursor: 'pointer' }}>Incluir IVA en precio de venta</label>
                             </div>
                             <Select label="Retención" options={[{ value: '0', label: 'No aplica' }, { value: '2.5', label: '2.5%' }]} />
                         </div>
@@ -129,20 +129,20 @@ export default function Configuracion() {
 
                     {tab === 'impresion' && (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '16px 20px', backgroundColor: '#EBF0F7', borderRadius: '10px' }}>
-                                <Printer size={20} style={{ color: '#1E3A5F' }} />
-                                <div><p style={{ fontSize: '13px', fontWeight: 600, color: '#1A1A2E' }}>Impresión</p><p style={{ fontSize: '11px', color: '#9CA3AF' }}>Formato de tickets y recibos</p></div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '16px 20px', backgroundColor: '#FFF8E7', borderRadius: '10px' }}>
+                                <Printer size={20} style={{ color: '#F2A900' }} />
+                                <div><p style={{ fontSize: '13px', fontWeight: 600, color: '#333333' }}>Impresión</p><p style={{ fontSize: '11px', color: '#999999' }}>Formato de tickets y recibos</p></div>
                             </div>
                             <Select label="Impresora" options={[{ value: 'thermal', label: 'Térmica (80mm)' }, { value: 'standard', label: 'Estándar (A4)' }]} />
                             <Input label="Encabezado del ticket" defaultValue="FERRETERIA LA ESQUINA DEL PROGRESO" />
                             <Input label="Pie del ticket" defaultValue="¡Gracias por su compra!" />
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '14px', backgroundColor: '#F0F2F5', borderRadius: '8px' }}>
-                                <input type="checkbox" id="logo" defaultChecked style={{ width: '18px', height: '18px', accentColor: '#1E3A5F' }} />
-                                <label htmlFor="logo" style={{ fontSize: '13px', color: '#1A1A2E', cursor: 'pointer' }}>Imprimir logo en ticket</label>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '14px', backgroundColor: '#F5F5F5', borderRadius: '8px' }}>
+                                <input type="checkbox" id="logo" defaultChecked style={{ width: '18px', height: '18px', accentColor: '#F2A900' }} />
+                                <label htmlFor="logo" style={{ fontSize: '13px', color: '#333333', cursor: 'pointer' }}>Imprimir logo en ticket</label>
                             </div>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '14px', backgroundColor: '#F0F2F5', borderRadius: '8px' }}>
-                                <input type="checkbox" id="autoprint" style={{ width: '18px', height: '18px', accentColor: '#1E3A5F' }} />
-                                <label htmlFor="autoprint" style={{ fontSize: '13px', color: '#1A1A2E', cursor: 'pointer' }}>Impresión automática al vender</label>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '14px', backgroundColor: '#F5F5F5', borderRadius: '8px' }}>
+                                <input type="checkbox" id="autoprint" style={{ width: '18px', height: '18px', accentColor: '#F2A900' }} />
+                                <label htmlFor="autoprint" style={{ fontSize: '13px', color: '#333333', cursor: 'pointer' }}>Impresión automática al vender</label>
                             </div>
                         </div>
                     )}
@@ -165,12 +165,12 @@ export default function Configuracion() {
                                 <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '20px' }}>
                                     <div>
                                         <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#991B1B', marginBottom: '6px' }}>Resetear Sistema</h3>
-                                        <p style={{ fontSize: '12px', color: '#6B7280', lineHeight: '1.5' }}>
+                                        <p style={{ fontSize: '12px', color: '#666666', lineHeight: '1.5' }}>
                                             Elimina <strong>todos los datos</strong>: ventas, compras, movimientos de caja,
                                             cierres, cuentas por cobrar/pagar, productos, servicios, stock, devoluciones
                                             y todas las cuentas bancarias/cajas secundarias.
                                         </p>
-                                        <p style={{ fontSize: '12px', color: '#6B7280', lineHeight: '1.5', marginTop: '6px' }}>
+                                        <p style={{ fontSize: '12px', color: '#666666', lineHeight: '1.5', marginTop: '6px' }}>
                                             <strong>Se mantiene:</strong> solo la Caja Principal (con saldo en $0),
                                             clientes, proveedores, usuarios, roles, ubicaciones y configuración.
                                         </p>
@@ -230,7 +230,7 @@ export default function Configuracion() {
                             onClick={handlePanicReset}
                             disabled={panicConfirmText !== 'RESETEAR' || panicLoading}
                             style={{
-                                padding: '10px 24px', backgroundColor: panicConfirmText === 'RESETEAR' ? '#DC2626' : '#9CA3AF',
+                                padding: '10px 24px', backgroundColor: panicConfirmText === 'RESETEAR' ? '#DC2626' : '#999999',
                                 color: '#FFF', border: 'none', borderRadius: '8px', fontWeight: 600, fontSize: '13px',
                                 cursor: panicConfirmText === 'RESETEAR' ? 'pointer' : 'not-allowed', opacity: panicLoading ? 0.7 : 1
                             }}

@@ -1,17 +1,17 @@
 import React from 'react';
 
 const variantStyles = {
-    primary: { backgroundColor: '#1E3A5F', color: '#FFFFFF', border: 'none' },
-    secondary: { backgroundColor: '#FFFFFF', color: '#6B7280', border: '1px solid #E2E5EA' },
+    primary: { backgroundColor: '#F2A900', color: '#333333', border: 'none' },
+    secondary: { backgroundColor: '#FFFFFF', color: '#666666', border: '1px solid #E0E0E0' },
     danger: { backgroundColor: '#DC2626', color: '#FFFFFF', border: 'none' },
     success: { backgroundColor: '#16A34A', color: '#FFFFFF', border: 'none' },
-    ghost: { backgroundColor: 'transparent', color: '#6B7280', border: 'none' },
-    outline: { backgroundColor: 'transparent', color: '#1E3A5F', border: '1px solid #1E3A5F' },
+    ghost: { backgroundColor: 'transparent', color: '#666666', border: 'none' },
+    outline: { backgroundColor: 'transparent', color: '#D4950A', border: '1px solid #F2A900' },
 };
 
 const hoverBg = {
-    primary: '#2C4F7C', secondary: '#F0F2F5', danger: '#B91C1C',
-    success: '#15803D', ghost: '#F0F2F5', outline: '#EBF0F7',
+    primary: '#D4950A', secondary: '#F5F5F5', danger: '#B91C1C',
+    success: '#15803D', ghost: '#F5F5F5', outline: '#FFF8E7',
 };
 
 const sizeStyles = {

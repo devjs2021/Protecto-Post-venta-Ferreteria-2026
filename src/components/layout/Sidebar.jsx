@@ -56,12 +56,9 @@ export default function Sidebar({ collapsed, onToggle, isMobile, mobileOpen, onM
         fetchData();
     }, []);
 
-    // Filter nav items based on user permissions
     const isAdmin = currentUser.role === 'admin' || (currentUser.permisos && currentUser.permisos.includes('all'));
     const filteredNavItems = isAdmin ? navItems : navItems.filter(item => {
-        // /usuarios is admin-only
         if (item.path === '/usuarios') return false;
-        // Check if user has permission for this module
         const moduleKey = item.path.replace('/', '');
         return currentUser.permisos && currentUser.permisos.includes(moduleKey);
     });
@@ -69,12 +66,11 @@ export default function Sidebar({ collapsed, onToggle, isMobile, mobileOpen, onM
     const userInitials = currentUser.name ? currentUser.name.split(' ').map(n => n[0]).join('').toUpperCase() : '?';
     const width = collapsed ? 72 : 250;
 
-    // Transition for hiding sidebar on mobile
     const showSidebar = isMobile ? mobileOpen : true;
     const sidebarStyle = {
         position: 'fixed', left: 0, top: 0, height: '100vh',
         width: isMobile ? '250px' : `${width}px`, backgroundColor: '#FFFFFF',
-        borderRight: '1px solid #E2E5EA',
+        borderRight: '1px solid #E0E0E0',
         display: 'flex', flexDirection: 'column',
         zIndex: 100, transition: 'all 300ms ease',
         boxShadow: showSidebar ? '2px 0 8px rgba(0,0,0,0.08)' : '2px 0 8px rgba(0,0,0,0.04)',
@@ -84,7 +80,6 @@ export default function Sidebar({ collapsed, onToggle, isMobile, mobileOpen, onM
 
     return (
         <>
-        {/* Overlay oscuro en móvil */}
         {isMobile && mobileOpen && (
             <div
                 onClick={onMobileClose}
@@ -100,11 +95,11 @@ export default function Sidebar({ collapsed, onToggle, isMobile, mobileOpen, onM
             <div style={{
                 display: 'flex', alignItems: 'center', gap: '12px',
                 padding: '0 16px', height: '60px',
-                borderBottom: '1px solid #E2E5EA', flexShrink: 0
+                borderBottom: '1px solid #E0E0E0', flexShrink: 0
             }}>
                 <div style={{
                     width: '36px', height: '36px', borderRadius: '50%',
-                    backgroundColor: '#fff', border: '1px solid #EEF2FF',
+                    backgroundColor: '#fff', border: '1px solid #FFF0CC',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     flexShrink: 0, overflow: 'hidden'
                 }}>
@@ -112,10 +107,10 @@ export default function Sidebar({ collapsed, onToggle, isMobile, mobileOpen, onM
                 </div>
                 {!collapsed && (
                     <div style={{ overflow: 'hidden' }}>
-                        <h1 style={{ fontSize: '14px', fontWeight: 700, color: '#1A1A2E', whiteSpace: 'nowrap' }}>
+                        <h1 style={{ fontSize: '14px', fontWeight: 700, color: '#333333', whiteSpace: 'nowrap' }}>
                             FERRETERIA LA ESQUINA DEL PROGRESO
                         </h1>
-                        <p style={{ fontSize: '11px', color: '#9CA3AF', whiteSpace: 'nowrap', fontWeight: 500 }}>THE COMPANY</p>
+                        <p style={{ fontSize: '11px', color: '#999999', whiteSpace: 'nowrap', fontWeight: 500 }}>THE COMPANY</p>
                     </div>
                 )}
             </div>
@@ -137,24 +132,24 @@ export default function Sidebar({ collapsed, onToggle, isMobile, mobileOpen, onM
                                         justifyContent: collapsed ? 'center' : 'flex-start',
                                         borderRadius: '8px', textDecoration: 'none',
                                         fontSize: '13px', fontWeight: isActive ? 600 : 500,
-                                        backgroundColor: isActive ? '#1E3A5F' : 'transparent',
-                                        color: isActive ? '#FFFFFF' : '#6B7280',
+                                        backgroundColor: isActive ? '#F2A900' : 'transparent',
+                                        color: isActive ? '#333333' : '#666666',
                                         transition: 'all 150ms ease'
                                     }}
                                     onMouseEnter={e => {
                                         if (!isActive) {
-                                            e.currentTarget.style.backgroundColor = '#EBF0F7';
-                                            e.currentTarget.style.color = '#1A1A2E';
+                                            e.currentTarget.style.backgroundColor = '#FFF8E7';
+                                            e.currentTarget.style.color = '#333333';
                                         }
                                     }}
                                     onMouseLeave={e => {
                                         if (!isActive) {
                                             e.currentTarget.style.backgroundColor = 'transparent';
-                                            e.currentTarget.style.color = '#6B7280';
+                                            e.currentTarget.style.color = '#666666';
                                         }
                                     }}
                                 >
-                                    <Icon size={20} style={{ flexShrink: 0, color: isActive ? '#FFFFFF' : '#9CA3AF' }} />
+                                    <Icon size={20} style={{ flexShrink: 0, color: isActive ? '#333333' : '#999999' }} />
                                     {!collapsed && <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{label}</span>}
                                 </NavLink>
                             </li>
@@ -164,26 +159,26 @@ export default function Sidebar({ collapsed, onToggle, isMobile, mobileOpen, onM
             </nav>
 
             {/* User */}
-            <div style={{ padding: '10px', borderTop: '1px solid #E2E5EA', flexShrink: 0 }}>
+            <div style={{ padding: '10px', borderTop: '1px solid #E0E0E0', flexShrink: 0 }}>
                 <div style={{
                     display: 'flex', alignItems: 'center', gap: '10px',
                     padding: '10px 12px', borderRadius: '8px',
-                    backgroundColor: '#EBF0F7',
+                    backgroundColor: '#FFF8E7',
                     justifyContent: collapsed ? 'center' : 'flex-start'
                 }}>
                     <div style={{
                         width: '32px', height: '32px', borderRadius: '8px',
-                        backgroundColor: '#1E3A5F', display: 'flex',
+                        backgroundColor: '#F2A900', display: 'flex',
                         alignItems: 'center', justifyContent: 'center', flexShrink: 0
                     }}>
-                        <span style={{ fontSize: '11px', fontWeight: 700, color: 'white' }}>
+                        <span style={{ fontSize: '11px', fontWeight: 700, color: '#333333' }}>
                             {userInitials}
                         </span>
                     </div>
                     {!collapsed && (
                         <div style={{ overflow: 'hidden' }}>
-                            <p style={{ fontSize: '12px', fontWeight: 600, color: '#1A1A2E', whiteSpace: 'nowrap' }}>{currentUser.name}</p>
-                            <p style={{ fontSize: '10px', color: '#9CA3AF', whiteSpace: 'nowrap' }}>{currentUser.role}</p>
+                            <p style={{ fontSize: '12px', fontWeight: 600, color: '#333333', whiteSpace: 'nowrap' }}>{currentUser.name}</p>
+                            <p style={{ fontSize: '10px', color: '#999999', whiteSpace: 'nowrap' }}>{currentUser.role}</p>
                         </div>
                     )}
                 </div>
@@ -196,16 +191,16 @@ export default function Sidebar({ collapsed, onToggle, isMobile, mobileOpen, onM
                     style={{
                         position: 'absolute', right: '-12px', top: '72px',
                         width: '24px', height: '24px', borderRadius: '50%',
-                        backgroundColor: '#FFFFFF', border: '1px solid #E2E5EA',
+                        backgroundColor: '#FFFFFF', border: '1px solid #E0E0E0',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         cursor: 'pointer', zIndex: 40,
                         boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
                         transition: 'all 150ms ease'
                     }}
-                    onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#EBF0F7'; }}
+                    onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#FFF8E7'; }}
                     onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#FFFFFF'; }}
                 >
-                    <ChevronLeft size={14} style={{ color: '#9CA3AF', transform: collapsed ? 'rotate(180deg)' : 'none', transition: 'transform 300ms ease' }} />
+                    <ChevronLeft size={14} style={{ color: '#999999', transform: collapsed ? 'rotate(180deg)' : 'none', transition: 'transform 300ms ease' }} />
                 </button>
             )}
         </aside>

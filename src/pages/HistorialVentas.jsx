@@ -182,8 +182,8 @@ export default function HistorialVentas() {
             {/* Header */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
                 <div>
-                    <h1 style={{ fontSize: '24px', fontWeight: 700, color: '#1A1A2E' }}>Historial de Ventas</h1>
-                    <p style={{ fontSize: '14px', color: '#6B7280', marginTop: '4px' }}>
+                    <h1 style={{ fontSize: '24px', fontWeight: 700, color: '#333333' }}>Historial de Ventas</h1>
+                    <p style={{ fontSize: '14px', color: '#666666', marginTop: '4px' }}>
                         Consulta ventas pasadas, busca por recibo o cliente y gestiona devoluciones.
                     </p>
                 </div>
@@ -195,7 +195,7 @@ export default function HistorialVentas() {
                 padding: '16px', borderRadius: '12px', border: '1px solid #E5E7EB', flexWrap: 'wrap'
             }}>
                 <div style={{ flex: '1 1 300px', position: 'relative' }}>
-                    <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#9CA3AF' }} />
+                    <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#999999' }} />
                     <input
                         type="text"
                         placeholder="Buscar por recibo o nombre del cliente..."
@@ -206,7 +206,7 @@ export default function HistorialVentas() {
                 </div>
 
                 <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                    <Calendar size={18} color="#6B7280" />
+                    <Calendar size={18} color="#666666" />
                     <select
                         value={selectedMonth}
                         onChange={(e) => setSelectedMonth(e.target.value)}
@@ -222,7 +222,7 @@ export default function HistorialVentas() {
                 </div>
 
                 <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                    <Filter size={18} color="#6B7280" />
+                    <Filter size={18} color="#666666" />
                     <select
                         value={selectedPaymentMethod}
                         onChange={(e) => setSelectedPaymentMethod(e.target.value)}
@@ -252,11 +252,11 @@ export default function HistorialVentas() {
             {/* List */}
             <div style={{ backgroundColor: '#FFFFFF', borderRadius: '12px', border: '1px solid #E5E7EB', overflow: 'hidden' }}>
                 {loading ? (
-                    <div style={{ textAlign: 'center', padding: '60px', color: '#6B7280' }}>
+                    <div style={{ textAlign: 'center', padding: '60px', color: '#666666' }}>
                         Cargando historial de ventas...
                     </div>
                 ) : filteredHistory.length === 0 ? (
-                    <div style={{ textAlign: 'center', padding: '60px', color: '#6B7280' }}>
+                    <div style={{ textAlign: 'center', padding: '60px', color: '#666666' }}>
                         <History size={48} style={{ margin: '0 auto 16px', opacity: 0.3 }} />
                         <p style={{ fontSize: '16px', fontWeight: 500, color: '#374151' }}>No se encontraron ventas</p>
                         <p style={{ fontSize: '14px', marginTop: '8px' }}>Intente ajustar o limpiar los filtros de búsqueda.</p>
@@ -277,7 +277,7 @@ export default function HistorialVentas() {
                                         alignItems: 'center',
                                         cursor: 'pointer',
                                         transition: 'background-color 0.2s',
-                                        borderLeft: expandedHistoryId === venta.id ? '4px solid #1E3A5F' : '4px solid transparent'
+                                        borderLeft: expandedHistoryId === venta.id ? '4px solid #F2A900' : '4px solid transparent'
                                     }}
                                 >
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -285,7 +285,7 @@ export default function HistorialVentas() {
                                             display: 'inline-block',
                                             transform: expandedHistoryId === venta.id ? 'rotate(90deg)' : 'none',
                                             transition: 'transform 0.2s',
-                                            color: '#9CA3AF',
+                                            color: '#999999',
                                             fontSize: '12px'
                                         }}>
                                             ▶
@@ -312,7 +312,7 @@ export default function HistorialVentas() {
                                                     </span>
                                                 )}
                                             </div>
-                                            <div style={{ fontSize: '11px', color: '#6B7280', marginTop: '4px' }}>
+                                            <div style={{ fontSize: '11px', color: '#666666', marginTop: '4px' }}>
                                                 {new Date(venta.createdAt).toLocaleString('es-CO', {
                                                     weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
                                                     hour: '2-digit', minute: '2-digit'
@@ -324,7 +324,7 @@ export default function HistorialVentas() {
                                         <div style={{ fontWeight: 700, fontSize: '15px', color: '#111827' }}>
                                             {formatPesos(venta.total)}
                                         </div>
-                                        <div style={{ fontSize: '11px', color: '#6B7280', textTransform: 'capitalize', marginTop: '2px' }}>
+                                        <div style={{ fontSize: '11px', color: '#666666', textTransform: 'capitalize', marginTop: '2px' }}>
                                             {venta.metodoPago === 'credito' ? 'Cuenta por Cobrar' : venta.metodoPago}
                                         </div>
                                     </div>
@@ -334,7 +334,7 @@ export default function HistorialVentas() {
                                 {expandedHistoryId === venta.id && (
                                     <div className="historial-venta-detalle" style={{ padding: '12px 16px 16px 40px', backgroundColor: '#F8FAFC', borderTop: '1px solid #E5E7EB' }}>
                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                                            <span style={{ fontSize: '13px', fontWeight: 600, color: '#1A1A2E' }}>Detalle de Artículos{venta.tipo !== 'DEVOLUCION' ? ' y Devolución' : ''}</span>
+                                            <span style={{ fontSize: '13px', fontWeight: 600, color: '#333333' }}>Detalle de Artículos{venta.tipo !== 'DEVOLUCION' ? ' y Devolución' : ''}</span>
                                             {venta.tipo !== 'DEVOLUCION' && venta.estado !== 'anulada' && (
                                                 <button
                                                     onClick={() => {
@@ -355,7 +355,7 @@ export default function HistorialVentas() {
                                         <div className="historial-venta-tabla-container">
                                             <table style={{ width: '100%', fontSize: '12px', borderCollapse: 'collapse', backgroundColor: '#FFF', border: '1px solid #E5E7EB', borderRadius: '6px', overflow: 'hidden' }}>
                                                 <thead>
-                                                    <tr style={{ color: '#6B7280', borderBottom: '1px solid #E5E7EB', backgroundColor: '#F9FAFB' }}>
+                                                    <tr style={{ color: '#666666', borderBottom: '1px solid #E5E7EB', backgroundColor: '#F9FAFB' }}>
                                                         <th style={{ textAlign: 'left', padding: '6px 10px' }}>Producto</th>
                                                         <th style={{ textAlign: 'center', padding: '6px 10px', width: '70px' }}>{venta.tipo === 'DEVOLUCION' ? 'Cantidad' : 'Comprado'}</th>
                                                         {venta.tipo !== 'DEVOLUCION' && <th style={{ textAlign: 'center', padding: '6px 10px', width: '70px' }}>Devuelto</th>}
@@ -371,12 +371,12 @@ export default function HistorialVentas() {
                                                         return (
                                                             <tr key={item.id || i} style={{ borderBottom: '1px solid #F1F5F9' }}>
                                                                 <td style={{ padding: '8px 10px' }}>
-                                                                    <div style={{ fontWeight: 500, color: '#1A1A2E' }}>{item.nombre}</div>
-                                                                    <div style={{ fontSize: '10px', color: '#9CA3AF', marginTop: '1px' }}>{item.codigo}</div>
+                                                                    <div style={{ fontWeight: 500, color: '#333333' }}>{item.nombre}</div>
+                                                                    <div style={{ fontSize: '10px', color: '#999999', marginTop: '1px' }}>{item.codigo}</div>
                                                                 </td>
                                                                 <td style={{ textAlign: 'center', padding: '8px 10px', fontWeight: 600 }}>{item.cantidad}</td>
                                                                 {venta.tipo !== 'DEVOLUCION' && (
-                                                                    <td style={{ textAlign: 'center', padding: '8px 10px', color: item.cantidadDevuelta > 0 ? '#DC2626' : '#9CA3AF', fontWeight: item.cantidadDevuelta > 0 ? 600 : 400 }}>
+                                                                    <td style={{ textAlign: 'center', padding: '8px 10px', color: item.cantidadDevuelta > 0 ? '#DC2626' : '#999999', fontWeight: item.cantidadDevuelta > 0 ? 600 : 400 }}>
                                                                         {item.cantidadDevuelta || 0}
                                                                     </td>
                                                                 )}
@@ -405,7 +405,7 @@ export default function HistorialVentas() {
                                                                                 >+</button>
                                                                             </div>
                                                                         ) : (
-                                                                            <span style={{ color: '#9CA3AF', fontSize: '11px' }}>No disponible</span>
+                                                                            <span style={{ color: '#999999', fontSize: '11px' }}>No disponible</span>
                                                                         )}
                                                                     </td>
                                                                 )}
@@ -431,7 +431,7 @@ export default function HistorialVentas() {
                                                 {/* Left: Settings */}
                                                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '10px' }}>
                                                     <div>
-                                                        <label style={{ display: 'block', fontSize: '11px', fontWeight: 600, marginBottom: '4px', color: '#1A1A2E' }}>Destino del Reembolso</label>
+                                                        <label style={{ display: 'block', fontSize: '11px', fontWeight: 600, marginBottom: '4px', color: '#333333' }}>Destino del Reembolso</label>
                                                         <select
                                                             value={refundMethod[venta.id] || 'efectivo'}
                                                             onChange={(e) => {
@@ -465,7 +465,7 @@ export default function HistorialVentas() {
                                                     )}
 
                                                     <div>
-                                                        <label style={{ display: 'block', fontSize: '11px', fontWeight: 600, marginBottom: '4px', color: '#1A1A2E' }}>Motivo (Opcional)</label>
+                                                        <label style={{ display: 'block', fontSize: '11px', fontWeight: 600, marginBottom: '4px', color: '#333333' }}>Motivo (Opcional)</label>
                                                         <input
                                                             type="text"
                                                             value={returnReason}

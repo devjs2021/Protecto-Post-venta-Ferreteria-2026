@@ -42,7 +42,7 @@ function Toggle({ on, onClick }) {
             style={{
                 width: '44px', height: '24px', borderRadius: '12px',
                 display: 'flex', alignItems: 'center', cursor: 'pointer',
-                backgroundColor: on ? '#1E3A5F' : '#D1D5DB',
+                backgroundColor: on ? '#F2A900' : '#D1D5DB',
                 justifyContent: on ? 'flex-end' : 'flex-start',
                 padding: '2px', transition: 'all 200ms ease',
                 flexShrink: 0
@@ -273,10 +273,10 @@ export default function Usuarios() {
 
     const tabStyle = (active) => ({
         padding: '10px 24px', fontSize: '14px', fontWeight: active ? 600 : 500,
-        color: active ? '#1E3A5F' : '#6B7280', cursor: 'pointer',
-        borderBottom: active ? '2px solid #1E3A5F' : '2px solid transparent',
+        color: active ? '#F2A900' : '#666666', cursor: 'pointer',
+        borderBottom: active ? '2px solid #F2A900' : '2px solid transparent',
         backgroundColor: 'transparent', border: 'none', borderBottomWidth: '2px',
-        borderBottomStyle: 'solid', borderBottomColor: active ? '#1E3A5F' : 'transparent',
+        borderBottomStyle: 'solid', borderBottomColor: active ? '#F2A900' : 'transparent',
         transition: 'all 150ms'
     });
 
@@ -285,8 +285,8 @@ export default function Usuarios() {
             {/* Header */}
             <div id="usuarios-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div>
-                    <h1 style={{ fontSize: '22px', fontWeight: 700, color: '#1A1A2E' }}>Usuarios y Roles</h1>
-                    <p style={{ fontSize: '13px', color: '#6B7280', marginTop: '4px' }}>Gestión de usuarios, roles y permisos del sistema</p>
+                    <h1 style={{ fontSize: '22px', fontWeight: 700, color: '#333333' }}>Usuarios y Roles</h1>
+                    <p style={{ fontSize: '13px', color: '#666666', marginTop: '4px' }}>Gestión de usuarios, roles y permisos del sistema</p>
                 </div>
                 {tab === 'usuarios' ? (
                     <Button onClick={openNewUser}><Plus size={16} style={{ marginRight: '6px' }} />Nuevo Usuario</Button>
@@ -296,7 +296,7 @@ export default function Usuarios() {
             </div>
 
             {/* Tabs */}
-            <div id="usuarios-tabs" style={{ display: 'flex', borderBottom: '1px solid #E2E5EA', gap: '0' }}>
+            <div id="usuarios-tabs" style={{ display: 'flex', borderBottom: '1px solid #E0E0E0', gap: '0' }}>
                 <button style={tabStyle(tab === 'usuarios')} onClick={() => setTab('usuarios')}>
                     <Users size={15} style={{ marginRight: '6px', verticalAlign: 'middle' }} />Usuarios
                 </button>
@@ -307,28 +307,28 @@ export default function Usuarios() {
 
             {/* ═══ USUARIOS TAB ═══ */}
             {tab === 'usuarios' && (
-                <div id="usuarios-table" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E2E5EA', borderRadius: '10px', overflow: 'hidden' }}>
+                <div id="usuarios-table" style={{ backgroundColor: '#FFFFFF', border: '1px solid #E0E0E0', borderRadius: '10px', overflow: 'hidden' }}>
                     <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                         <thead>
                             <tr style={{ backgroundColor: '#F9FAFB', borderBottom: '1px solid #E5E7EB' }}>
                                 {['#', 'Usuario', 'Rol', 'Estado', 'Creado', 'Acciones'].map(h => (
-                                    <th key={h} style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#6B7280', textTransform: 'uppercase' }}>{h}</th>
+                                    <th key={h} style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#666666', textTransform: 'uppercase' }}>{h}</th>
                                 ))}
                             </tr>
                         </thead>
                         <tbody>
                             {loading ? (
-                                <tr><td colSpan={6} style={{ padding: '24px', textAlign: 'center', color: '#6B7280', fontSize: '14px' }}>Cargando...</td></tr>
+                                <tr><td colSpan={6} style={{ padding: '24px', textAlign: 'center', color: '#666666', fontSize: '14px' }}>Cargando...</td></tr>
                             ) : usuarios.length === 0 ? (
-                                <tr><td colSpan={6} style={{ padding: '24px', textAlign: 'center', color: '#6B7280', fontSize: '14px' }}>No hay usuarios registrados.</td></tr>
+                                <tr><td colSpan={6} style={{ padding: '24px', textAlign: 'center', color: '#666666', fontSize: '14px' }}>No hay usuarios registrados.</td></tr>
                             ) : usuarios.map((u, idx) => {
                                 const rc = roleColors[u.role] || { bg: '#F3F4F6', text: '#4B5563' };
                                 return (
-                                    <tr key={u.id} style={{ borderBottom: idx < usuarios.length - 1 ? '1px solid #F0F2F5' : 'none', transition: 'background 100ms' }}
+                                    <tr key={u.id} style={{ borderBottom: idx < usuarios.length - 1 ? '1px solid #F5F5F5' : 'none', transition: 'background 100ms' }}
                                         onMouseEnter={e => e.currentTarget.style.backgroundColor = '#FAFBFC'}
                                         onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}>
-                                        <td data-label="#" style={{ padding: '14px 20px', fontSize: '13px', color: '#6B7280', fontWeight: 500 }}>{u.id}</td>
-                                        <td data-label="Usuario" style={{ padding: '14px 20px', fontSize: '13px', fontWeight: 500, color: '#1A1A2E' }}>{u.username}</td>
+                                        <td data-label="#" style={{ padding: '14px 20px', fontSize: '13px', color: '#666666', fontWeight: 500 }}>{u.id}</td>
+                                        <td data-label="Usuario" style={{ padding: '14px 20px', fontSize: '13px', fontWeight: 500, color: '#333333' }}>{u.username}</td>
                                         <td data-label="Rol" style={{ padding: '14px 20px' }}>
                                             <span style={{ fontSize: '11px', fontWeight: 600, padding: '4px 10px', borderRadius: '4px', backgroundColor: rc.bg, color: rc.text, textTransform: 'capitalize' }}>
                                                 {u.role}
@@ -343,7 +343,7 @@ export default function Usuarios() {
                                                 {u.activo ? 'Activo' : 'Inactivo'}
                                             </span>
                                         </td>
-                                        <td data-label="Creado" style={{ padding: '14px 20px', fontSize: '13px', color: '#6B7280' }}>
+                                        <td data-label="Creado" style={{ padding: '14px 20px', fontSize: '13px', color: '#666666' }}>
                                             {new Date(u.createdAt).toLocaleDateString()}
                                         </td>
                                         <td data-label="Acciones" style={{ padding: '14px 20px' }}>
@@ -385,9 +385,9 @@ export default function Usuarios() {
                     </div>
 
                     {loading ? (
-                        <div style={{ padding: '24px', textAlign: 'center', color: '#6B7280' }}>Cargando roles...</div>
+                        <div style={{ padding: '24px', textAlign: 'center', color: '#666666' }}>Cargando roles...</div>
                     ) : roles.length === 0 ? (
-                        <div style={{ padding: '24px', textAlign: 'center', color: '#6B7280', backgroundColor: '#FFFFFF', border: '1px solid #E2E5EA', borderRadius: '10px' }}>
+                        <div style={{ padding: '24px', textAlign: 'center', color: '#666666', backgroundColor: '#FFFFFF', border: '1px solid #E0E0E0', borderRadius: '10px' }}>
                             No hay roles creados. Crea un rol para asignar permisos.
                         </div>
                     ) : roles.map(role => {
@@ -396,15 +396,15 @@ export default function Usuarios() {
                         const rc = roleColors[role.nombre.toLowerCase()] || { bg: '#F3F4F6', text: '#4B5563' };
 
                         return (
-                            <div key={role.id} style={{ backgroundColor: '#FFFFFF', border: '1px solid #E2E5EA', borderRadius: '10px', overflow: 'hidden' }}>
+                            <div key={role.id} style={{ backgroundColor: '#FFFFFF', border: '1px solid #E0E0E0', borderRadius: '10px', overflow: 'hidden' }}>
                                 {/* Role header */}
-                                <div style={{ padding: '16px 20px', borderBottom: '1px solid #E2E5EA', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                                <div style={{ padding: '16px 20px', borderBottom: '1px solid #E0E0E0', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                                         <span style={{ fontSize: '13px', fontWeight: 600, padding: '4px 12px', borderRadius: '4px', backgroundColor: rc.bg, color: rc.text, textTransform: 'capitalize' }}>
                                             {role.nombre}
                                         </span>
-                                        {role.descripcion && <span style={{ fontSize: '13px', color: '#6B7280' }}>{role.descripcion}</span>}
-                                        <span style={{ fontSize: '12px', color: '#9CA3AF' }}>
+                                        {role.descripcion && <span style={{ fontSize: '13px', color: '#666666' }}>{role.descripcion}</span>}
+                                        <span style={{ fontSize: '12px', color: '#999999' }}>
                                             {permisos.length} de {MODULES.length} módulos
                                         </span>
                                     </div>
@@ -428,13 +428,13 @@ export default function Usuarios() {
                                     {MODULES.map((mod, idx) => (
                                         <div key={mod.key} style={{
                                             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                                            padding: '12px 20px', borderBottom: '1px solid #F0F2F5',
-                                            borderRight: '1px solid #F0F2F5',
+                                            padding: '12px 20px', borderBottom: '1px solid #F5F5F5',
+                                            borderRight: '1px solid #F5F5F5',
                                             backgroundColor: permisos.includes(mod.key) ? '#F0FDF4' : 'transparent'
                                         }}>
                                             <div>
-                                                <p style={{ fontSize: '13px', fontWeight: 500, color: permisos.includes(mod.key) ? '#1A1A2E' : '#9CA3AF' }}>{mod.label}</p>
-                                                <p style={{ fontSize: '11px', color: '#9CA3AF', marginTop: '2px' }}>{mod.desc}</p>
+                                                <p style={{ fontSize: '13px', fontWeight: 500, color: permisos.includes(mod.key) ? '#333333' : '#999999' }}>{mod.label}</p>
+                                                <p style={{ fontSize: '11px', color: '#999999', marginTop: '2px' }}>{mod.desc}</p>
                                             </div>
                                             <span style={{
                                                 fontSize: '10px', fontWeight: 600, padding: '3px 8px', borderRadius: '4px',
@@ -467,7 +467,7 @@ export default function Usuarios() {
                             </div>
                             <div>
                                 <label style={{ display: 'block', fontSize: '13px', fontWeight: 500, color: '#374151', marginBottom: '6px' }}>
-                                    Contraseña {editUserId && <span style={{ color: '#9CA3AF', fontWeight: 400 }}>(opcional)</span>}
+                                    Contraseña {editUserId && <span style={{ color: '#999999', fontWeight: 400 }}>(opcional)</span>}
                                 </label>
                                 <div style={{ position: 'relative' }}>
                                     <input type={showPassword ? 'text' : 'password'} value={userForm.password}
@@ -475,7 +475,7 @@ export default function Usuarios() {
                                         placeholder={editUserId ? 'Nueva contraseña' : 'Contraseña'}
                                         style={{ width: '100%', padding: '10px 40px 10px 12px', border: '1px solid #D1D5DB', borderRadius: '8px', fontSize: '14px', outline: 'none', boxSizing: 'border-box' }} />
                                     <button type="button" onClick={() => setShowPassword(!showPassword)}
-                                        style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#9CA3AF', display: 'flex' }}>
+                                        style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#999999', display: 'flex' }}>
                                         {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                                     </button>
                                 </div>
@@ -507,11 +507,11 @@ export default function Usuarios() {
 
                         {/* Right: Permission toggles */}
                         {userForm.role !== 'admin' && (
-                            <div style={{ flex: 1, borderLeft: '1px solid #E2E5EA', paddingLeft: '20px', display: 'flex', flexDirection: 'column' }}>
+                            <div style={{ flex: 1, borderLeft: '1px solid #E0E0E0', paddingLeft: '20px', display: 'flex', flexDirection: 'column' }}>
                                 <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '10px' }}>
-                                    Permisos <span style={{ fontWeight: 400, color: '#9CA3AF' }}>({userForm.permisos.length}/{MODULES.length})</span>
+                                    Permisos <span style={{ fontWeight: 400, color: '#999999' }}>({userForm.permisos.length}/{MODULES.length})</span>
                                 </label>
-                                <div style={{ border: '1px solid #E2E5EA', borderRadius: '8px', overflow: 'hidden', overflowY: 'auto', flex: 1 }}>
+                                <div style={{ border: '1px solid #E0E0E0', borderRadius: '8px', overflow: 'hidden', overflowY: 'auto', flex: 1 }}>
                                     {MODULES.map((mod, idx) => {
                                         const on = userForm.permisos.includes(mod.key);
                                         return (
@@ -519,11 +519,11 @@ export default function Usuarios() {
                                                 <div style={{
                                                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                                                     padding: '9px 14px',
-                                                    borderBottom: (idx < MODULES.length - 1 || (on && mod.children)) ? '1px solid #F0F2F5' : 'none',
+                                                    borderBottom: (idx < MODULES.length - 1 || (on && mod.children)) ? '1px solid #F5F5F5' : 'none',
                                                     backgroundColor: on ? '#F0FDF4' : 'transparent',
                                                     transition: 'background 150ms'
                                                 }}>
-                                                    <p style={{ fontSize: '13px', fontWeight: 500, color: on ? '#1A1A2E' : '#6B7280' }}>{mod.label}</p>
+                                                    <p style={{ fontSize: '13px', fontWeight: 500, color: on ? '#333333' : '#666666' }}>{mod.label}</p>
                                                     <Toggle on={on} onClick={() => toggleUserPermission(mod.key)} />
                                                 </div>
                                                 {on && mod.children && mod.children.map(child => {
@@ -532,11 +532,11 @@ export default function Usuarios() {
                                                         <div key={child.key} style={{
                                                             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                                                             padding: '7px 14px 7px 32px',
-                                                            borderBottom: '1px solid #F0F2F5',
+                                                            borderBottom: '1px solid #F5F5F5',
                                                             backgroundColor: childOn ? '#EFF6FF' : '#F9FAFB',
                                                             transition: 'background 150ms'
                                                         }}>
-                                                            <p style={{ fontSize: '12px', fontWeight: 500, color: childOn ? '#1E3A5F' : '#9CA3AF' }}>↳ {child.label}</p>
+                                                            <p style={{ fontSize: '12px', fontWeight: 500, color: childOn ? '#F2A900' : '#999999' }}>↳ {child.label}</p>
                                                             <Toggle on={childOn} onClick={() => toggleUserPermission(child.key)} />
                                                         </div>
                                                     );
@@ -577,11 +577,11 @@ export default function Usuarios() {
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
                                 <label style={{ fontSize: '13px', fontWeight: 600, color: '#374151' }}>Módulos permitidos</label>
                                 <button onClick={toggleAll}
-                                    style={{ fontSize: '12px', color: '#1E3A5F', cursor: 'pointer', background: 'none', border: 'none', fontWeight: 500, textDecoration: 'underline' }}>
+                                    style={{ fontSize: '12px', color: '#F2A900', cursor: 'pointer', background: 'none', border: 'none', fontWeight: 500, textDecoration: 'underline' }}>
                                     {roleForm.permisos.length === MODULES.length ? 'Desmarcar todos' : 'Marcar todos'}
                                 </button>
                             </div>
-                            <div style={{ border: '1px solid #E2E5EA', borderRadius: '8px', overflow: 'hidden' }}>
+                            <div style={{ border: '1px solid #E0E0E0', borderRadius: '8px', overflow: 'hidden' }}>
                                 {MODULES.map((mod, idx) => {
                                     const on = roleForm.permisos.includes(mod.key);
                                     return (
@@ -589,13 +589,13 @@ export default function Usuarios() {
                                             <div style={{
                                                 display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                                                 padding: '12px 16px',
-                                                borderBottom: (idx < MODULES.length - 1 || (on && mod.children)) ? '1px solid #F0F2F5' : 'none',
+                                                borderBottom: (idx < MODULES.length - 1 || (on && mod.children)) ? '1px solid #F5F5F5' : 'none',
                                                 backgroundColor: on ? '#F0FDF4' : 'transparent',
                                                 transition: 'background 150ms'
                                             }}>
                                                 <div>
-                                                    <p style={{ fontSize: '13px', fontWeight: 500, color: on ? '#1A1A2E' : '#6B7280' }}>{mod.label}</p>
-                                                    <p style={{ fontSize: '11px', color: '#9CA3AF', marginTop: '1px' }}>{mod.desc}</p>
+                                                    <p style={{ fontSize: '13px', fontWeight: 500, color: on ? '#333333' : '#666666' }}>{mod.label}</p>
+                                                    <p style={{ fontSize: '11px', color: '#999999', marginTop: '1px' }}>{mod.desc}</p>
                                                 </div>
                                                 <Toggle on={on} onClick={() => togglePermission(mod.key)} />
                                             </div>
@@ -605,13 +605,13 @@ export default function Usuarios() {
                                                     <div key={child.key} style={{
                                                         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                                                         padding: '10px 16px 10px 36px',
-                                                        borderBottom: '1px solid #F0F2F5',
+                                                        borderBottom: '1px solid #F5F5F5',
                                                         backgroundColor: childOn ? '#EFF6FF' : '#F9FAFB',
                                                         transition: 'background 150ms'
                                                     }}>
                                                         <div>
-                                                            <p style={{ fontSize: '12px', fontWeight: 500, color: childOn ? '#1E3A5F' : '#9CA3AF' }}>↳ {child.label}</p>
-                                                            <p style={{ fontSize: '10px', color: '#9CA3AF', marginTop: '1px' }}>{child.desc}</p>
+                                                            <p style={{ fontSize: '12px', fontWeight: 500, color: childOn ? '#F2A900' : '#999999' }}>↳ {child.label}</p>
+                                                            <p style={{ fontSize: '10px', color: '#999999', marginTop: '1px' }}>{child.desc}</p>
                                                         </div>
                                                         <Toggle on={childOn} onClick={() => togglePermission(child.key)} />
                                                     </div>

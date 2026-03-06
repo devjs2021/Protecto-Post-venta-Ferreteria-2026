@@ -197,7 +197,7 @@ export default function ReceiptModal({ sale, onClose, onDownloadPDF }) {
                         </p>
                         <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
                             <div style={{ position: 'relative', flex: 1 }}>
-                                <Phone size={14} style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', color: '#6B7280' }} />
+                                <Phone size={14} style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', color: '#666666' }} />
                                 <input
                                     type="tel"
                                     value={waPhone}
@@ -220,7 +220,7 @@ export default function ReceiptModal({ sale, onClose, onDownloadPDF }) {
                                 style={{
                                     display: 'flex', alignItems: 'center', gap: '6px',
                                     padding: '8px 14px',
-                                    backgroundColor: waSending || !waPhone.trim() ? '#9CA3AF' : '#25D366',
+                                    backgroundColor: waSending || !waPhone.trim() ? '#999999' : '#25D366',
                                     color: '#fff',
                                     border: 'none',
                                     borderRadius: '8px',

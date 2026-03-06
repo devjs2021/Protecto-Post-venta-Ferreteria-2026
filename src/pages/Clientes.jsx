@@ -101,15 +101,15 @@ export default function Clientes() {
         <div id="dir-root" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div id="dir-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div>
-                    <h1 style={{ fontSize: '22px', fontWeight: 700, color: '#1A1A2E' }}>Clientes</h1>
-                    <p style={{ fontSize: '13px', color: '#6B7280', marginTop: '4px' }}>Gestión de clientes y contactos</p>
+                    <h1 style={{ fontSize: '22px', fontWeight: 700, color: '#333333' }}>Clientes</h1>
+                    <p style={{ fontSize: '13px', color: '#666666', marginTop: '4px' }}>Gestión de clientes y contactos</p>
                 </div>
                 <Button onClick={() => setShowNew(true)}><Plus size={16} style={{ marginRight: '6px' }} />Nuevo Cliente</Button>
             </div>
 
             {/* Search */}
             <div id="dir-search" style={{ position: 'relative', maxWidth: '400px' }}>
-                <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#9CA3AF' }} />
+                <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#999999' }} />
                 <input
                     type="text"
                     placeholder="Buscar por nombre o documento..."
@@ -134,18 +134,18 @@ export default function Clientes() {
                 overflow: 'hidden'
             }}>
                 {loading ? (
-                    <div style={{ padding: '40px', textAlign: 'center', color: '#6B7280' }}>
+                    <div style={{ padding: '40px', textAlign: 'center', color: '#666666' }}>
                         Cargando clientes...
                     </div>
                 ) : (
                     <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                         <thead>
                             <tr style={{ backgroundColor: '#F9FAFB', borderBottom: '1px solid #E5E7EB' }}>
-                                <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#6B7280' }}>Nombre</th>
-                                <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#6B7280' }}>Documento</th>
-                                <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#6B7280' }}>Teléfono</th>
-                                <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#6B7280' }}>Email</th>
-                                <th style={{ padding: '12px 16px', textAlign: 'right', fontSize: '12px', fontWeight: 600, color: '#6B7280' }}>Acciones</th>
+                                <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#666666' }}>Nombre</th>
+                                <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#666666' }}>Documento</th>
+                                <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#666666' }}>Teléfono</th>
+                                <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#666666' }}>Email</th>
+                                <th style={{ padding: '12px 16px', textAlign: 'right', fontSize: '12px', fontWeight: 600, color: '#666666' }}>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -156,13 +156,13 @@ export default function Clientes() {
                                     onClick={() => setSelected(client)}
                                 >
                                     <td style={{ padding: '12px 16px', fontSize: '14px', fontWeight: 500 }}>{client.nombre}</td>
-                                    <td style={{ padding: '12px 16px', fontSize: '14px', color: '#6B7280' }}>{client.documento}</td>
-                                    <td style={{ padding: '12px 16px', fontSize: '14px', color: '#6B7280' }}>{client.telefono || '-'}</td>
-                                    <td style={{ padding: '12px 16px', fontSize: '14px', color: '#6B7280' }}>{client.email || '-'}</td>
+                                    <td style={{ padding: '12px 16px', fontSize: '14px', color: '#666666' }}>{client.documento}</td>
+                                    <td style={{ padding: '12px 16px', fontSize: '14px', color: '#666666' }}>{client.telefono || '-'}</td>
+                                    <td style={{ padding: '12px 16px', fontSize: '14px', color: '#666666' }}>{client.email || '-'}</td>
                                     <td style={{ padding: '12px 16px', textAlign: 'right' }}>
                                         <button
                                             onClick={(e) => { e.stopPropagation(); setSelected(client); setShowEdit(true); }}
-                                            style={{ padding: '6px', background: 'none', border: 'none', cursor: 'pointer', color: '#6B7280' }}
+                                            style={{ padding: '6px', background: 'none', border: 'none', cursor: 'pointer', color: '#666666' }}
                                         >
                                             <Edit size={16} />
                                         </button>
@@ -180,7 +180,7 @@ export default function Clientes() {
                 )}
 
                 {!loading && filtered.length === 0 && (
-                    <div style={{ padding: '40px', textAlign: 'center', color: '#6B7280' }}>
+                    <div style={{ padding: '40px', textAlign: 'center', color: '#666666' }}>
                         No se encontraron clientes
                     </div>
                 )}
@@ -309,30 +309,30 @@ export default function Clientes() {
                     <div style={{ minWidth: '400px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
                             <div style={{ width: '56px', height: '56px', borderRadius: '50%', backgroundColor: '#E5E7EB', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                <Users size={24} color="#6B7280" />
+                                <Users size={24} color="#666666" />
                             </div>
                             <div>
                                 <h3 style={{ fontSize: '18px', fontWeight: 600 }}>{selected.nombre}</h3>
-                                <p style={{ fontSize: '14px', color: '#6B7280' }}>Documento: {selected.documento}</p>
+                                <p style={{ fontSize: '14px', color: '#666666' }}>Documento: {selected.documento}</p>
                             </div>
                         </div>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             {selected.telefono && (
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                    <Phone size={18} color="#6B7280" />
+                                    <Phone size={18} color="#666666" />
                                     <span style={{ fontSize: '14px' }}>{selected.telefono}</span>
                                 </div>
                             )}
                             {selected.email && (
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                    <Mail size={18} color="#6B7280" />
+                                    <Mail size={18} color="#666666" />
                                     <span style={{ fontSize: '14px' }}>{selected.email}</span>
                                 </div>
                             )}
                             {selected.direccion && (
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                    <MapPin size={18} color="#6B7280" />
+                                    <MapPin size={18} color="#666666" />
                                     <span style={{ fontSize: '14px' }}>{selected.direccion}</span>
                                 </div>
                             )}

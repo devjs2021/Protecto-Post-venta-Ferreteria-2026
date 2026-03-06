@@ -220,8 +220,8 @@ export default function CajaBancos() {
     if (loading) {
         return (
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', flexDirection: 'column', gap: '16px' }}>
-                <div style={{ width: '40px', height: '40px', border: '3px solid #E5E7EB', borderTop: '3px solid #1E3A5F', borderRadius: '50%', animation: 'spin 1s linear infinite' }}></div>
-                <p style={{ color: '#6B7280', fontSize: '14px', fontWeight: 500 }}>Actualizando saldos y cajas...</p>
+                <div style={{ width: '40px', height: '40px', border: '3px solid #E5E7EB', borderTop: '3px solid #F2A900', borderRadius: '50%', animation: 'spin 1s linear infinite' }}></div>
+                <p style={{ color: '#666666', fontSize: '14px', fontWeight: 500 }}>Actualizando saldos y cajas...</p>
                 <style>{`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}</style>
             </div>
         );
@@ -232,17 +232,17 @@ export default function CajaBancos() {
             {/* Header */}
             <div id="caja-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div>
-                    <h1 style={{ fontSize: '22px', fontWeight: 700, color: '#1A1A2E' }}>Caja y Bancos</h1>
+                    <h1 style={{ fontSize: '22px', fontWeight: 700, color: '#333333' }}>Caja y Bancos</h1>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginTop: '8px' }}>
                         <button
                             onClick={() => setViewMode('general')}
-                            style={{ background: 'none', border: 'none', padding: 0, fontSize: '13px', fontWeight: viewMode === 'general' ? 600 : 400, color: viewMode === 'general' ? '#1E3A5F' : '#6B7280', cursor: 'pointer', borderBottom: viewMode === 'general' ? '2px solid #1E3A5F' : '2px solid transparent' }}
+                            style={{ background: 'none', border: 'none', padding: 0, fontSize: '13px', fontWeight: viewMode === 'general' ? 600 : 400, color: viewMode === 'general' ? '#F2A900' : '#666666', cursor: 'pointer', borderBottom: viewMode === 'general' ? '2px solid #F2A900' : '2px solid transparent' }}
                         >
                             Resumen General
                         </button>
                         <button
                             onClick={() => setViewMode('cierres')}
-                            style={{ background: 'none', border: 'none', padding: 0, fontSize: '13px', fontWeight: viewMode === 'cierres' ? 600 : 400, color: viewMode === 'cierres' ? '#1E3A5F' : '#6B7280', cursor: 'pointer', borderBottom: viewMode === 'cierres' ? '2px solid #1E3A5F' : '2px solid transparent' }}
+                            style={{ background: 'none', border: 'none', padding: 0, fontSize: '13px', fontWeight: viewMode === 'cierres' ? 600 : 400, color: viewMode === 'cierres' ? '#F2A900' : '#666666', cursor: 'pointer', borderBottom: viewMode === 'cierres' ? '2px solid #F2A900' : '2px solid transparent' }}
                         >
                             Cierres Diarios
                         </button>
@@ -276,7 +276,7 @@ export default function CajaBancos() {
                 <>
                     {/* Total Highlight */}
                     <div style={{
-                        backgroundColor: '#1E3A5F',
+                        backgroundColor: '#F2A900',
                         padding: '24px',
                         borderRadius: '12px',
                         color: '#fff',
@@ -329,17 +329,17 @@ export default function CajaBancos() {
                                             alignItems: 'center',
                                             justifyContent: 'center'
                                         }}>
-                                            {cuenta.tipo === 'caja' ? <Wallet size={16} color="#6B7280" /> : <Landmark size={16} color="#1E3A5F" />}
+                                            {cuenta.tipo === 'caja' ? <Wallet size={16} color="#666666" /> : <Landmark size={16} color="#F2A900" />}
                                         </div>
                                         <div>
-                                            <h3 style={{ fontSize: '14px', fontWeight: 600, color: '#1A1A2E' }}>{cuenta.nombre}{cuenta.tipo === 'banco' && cuenta.numeroCuenta ? ` ****${cuenta.numeroCuenta}` : ''}</h3>
-                                            <p style={{ fontSize: '10px', color: '#9CA3AF', textTransform: 'uppercase' }}>
+                                            <h3 style={{ fontSize: '14px', fontWeight: 600, color: '#333333' }}>{cuenta.nombre}{cuenta.tipo === 'banco' && cuenta.numeroCuenta ? ` ****${cuenta.numeroCuenta}` : ''}</h3>
+                                            <p style={{ fontSize: '10px', color: '#999999', textTransform: 'uppercase' }}>
                                                 {cuenta.tipo}
                                             </p>
                                         </div>
                                     </div>
                                     <div style={{ textAlign: 'right', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                        <p style={{ fontSize: '15px', fontWeight: 700, color: '#1A1A2E' }}>{formatPesos(cuenta.saldoActual)}</p>
+                                        <p style={{ fontSize: '15px', fontWeight: 700, color: '#333333' }}>{formatPesos(cuenta.saldoActual)}</p>
                                         {cuenta.id !== cajaPrincipalId && cuenta.saldoActual === 0 && (
                                             <button
                                                 onClick={(e) => { e.stopPropagation(); handleDeleteAccount(cuenta.id); }}
@@ -368,23 +368,23 @@ export default function CajaBancos() {
                             alignItems: 'center',
                             justifyContent: 'center'
                         }}>
-                            {cuentas.find(c => c.id.toString() === selectedCuentaId)?.tipo === 'caja' ? <Wallet size={28} color="#6B7280" /> : <Landmark size={28} color="#1E3A5F" />}
+                            {cuentas.find(c => c.id.toString() === selectedCuentaId)?.tipo === 'caja' ? <Wallet size={28} color="#666666" /> : <Landmark size={28} color="#F2A900" />}
                         </div>
                         <div>
-                            <h2 style={{ fontSize: '20px', fontWeight: 700, color: '#1A1A2E' }}>{cuentas.find(c => c.id.toString() === selectedCuentaId)?.nombre}</h2>
-                            <p style={{ fontSize: '12px', color: '#6B7280', textTransform: 'uppercase', fontWeight: 600 }}>
+                            <h2 style={{ fontSize: '20px', fontWeight: 700, color: '#333333' }}>{cuentas.find(c => c.id.toString() === selectedCuentaId)?.nombre}</h2>
+                            <p style={{ fontSize: '12px', color: '#666666', textTransform: 'uppercase', fontWeight: 600 }}>
                                 {cuentas.find(c => c.id.toString() === selectedCuentaId)?.tipo} {cuentas.find(c => c.id.toString() === selectedCuentaId)?.numeroCuenta ? `| #${cuentas.find(c => c.id.toString() === selectedCuentaId)?.numeroCuenta}` : ''}
                             </p>
                         </div>
                     </div>
                     <div style={{ textAlign: 'right' }}>
-                        <p style={{ fontSize: '12px', color: '#6B7280', fontWeight: 500 }}>SALDO ACTUAL</p>
-                        <p style={{ fontSize: '28px', fontWeight: 800, color: '#1A1A2E' }}>
+                        <p style={{ fontSize: '12px', color: '#666666', fontWeight: 500 }}>SALDO ACTUAL</p>
+                        <p style={{ fontSize: '28px', fontWeight: 800, color: '#333333' }}>
                             {formatPesos(cuentas.find(c => String(c.id) === String(selectedCuentaId))?.saldoActual || 0)}
                         </p>
                         <button
                             onClick={() => { setViewMode('general'); setSelectedCuentaId(''); }}
-                            style={{ marginTop: '8px', color: '#1E3A5F', fontSize: '13px', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}
+                            style={{ marginTop: '8px', color: '#F2A900', fontSize: '13px', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}
                         >
                             &larr; Volver a todas las cuentas
                         </button>
@@ -396,13 +396,13 @@ export default function CajaBancos() {
             {viewMode !== 'cierres' && (
                 <div id="caja-history" style={{ backgroundColor: '#fff', borderRadius: '12px', border: '1px solid #E5E7EB', overflow: 'hidden' }}>
                     <div id="caja-filters" style={{ padding: '16px 20px', borderBottom: '1px solid #E5E7EB', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
-                        <h2 style={{ fontSize: '15px', fontWeight: 600, color: '#1A1A2E' }}>
+                        <h2 style={{ fontSize: '15px', fontWeight: 600, color: '#333333' }}>
                             {viewMode === 'account' ? 'Historial Detallado' : (selectedCuentaId ? `Filtrado por: ${cuentas.find(c => c.id.toString() === selectedCuentaId)?.nombre}` : 'Todos los Movimientos Recientes')}
                         </h2>
 
                         <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                <span style={{ fontSize: '12px', color: '#6B7280' }}>Desde</span>
+                                <span style={{ fontSize: '12px', color: '#666666' }}>Desde</span>
                                 <input
                                     type="date"
                                     value={startDate}
@@ -411,7 +411,7 @@ export default function CajaBancos() {
                                 />
                             </div>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                <span style={{ fontSize: '12px', color: '#6B7280' }}>Hasta</span>
+                                <span style={{ fontSize: '12px', color: '#666666' }}>Hasta</span>
                                 <input
                                     type="date"
                                     value={endDate}
@@ -437,7 +437,7 @@ export default function CajaBancos() {
                                 variant="secondary"
                                 size="sm"
                                 onClick={handleExportExcel}
-                                style={(startDate || endDate) ? { backgroundColor: '#1E3A5F', color: '#fff', borderColor: '#1E3A5F' } : {}}
+                                style={(startDate || endDate) ? { backgroundColor: '#F2A900', color: '#fff', borderColor: '#F2A900' } : {}}
                             >
                                 <FileText size={14} style={{ marginRight: '6px' }} />{(startDate || endDate) ? 'Descargar Historial Filtrado' : 'Exportar Excel'}
                             </Button>
@@ -446,32 +446,32 @@ export default function CajaBancos() {
                     <div style={{ overflowX: 'auto', position: 'relative', minHeight: '200px' }}>
                         {loading && (
                             <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(255,255,255,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10 }}>
-                                <div style={{ color: '#1E3A5F', fontWeight: 600 }}>Cargando movimientos...</div>
+                                <div style={{ color: '#F2A900', fontWeight: 600 }}>Cargando movimientos...</div>
                             </div>
                         )}
                         <table style={{ width: '100%', borderCollapse: 'collapse', opacity: loading ? 0.5 : 1 }}>
                             <thead>
                                 <tr style={{ backgroundColor: '#F9FAFB', borderBottom: '1px solid #E5E7EB' }}>
-                                    <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', color: '#6B7280', textTransform: 'uppercase' }}>Fecha/Hora</th>
-                                    <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', color: '#6B7280', textTransform: 'uppercase' }}>Cuenta</th>
-                                    <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', color: '#6B7280', textTransform: 'uppercase' }}>Categoría</th>
-                                    <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', color: '#6B7280', textTransform: 'uppercase' }}>Desc / Referencia</th>
-                                    <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', color: '#6B7280', textTransform: 'uppercase' }}>Usuario</th>
-                                    <th style={{ padding: '12px 20px', textAlign: 'right', fontSize: '12px', color: '#6B7280', textTransform: 'uppercase' }}>Monto</th>
+                                    <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', color: '#666666', textTransform: 'uppercase' }}>Fecha/Hora</th>
+                                    <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', color: '#666666', textTransform: 'uppercase' }}>Cuenta</th>
+                                    <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', color: '#666666', textTransform: 'uppercase' }}>Categoría</th>
+                                    <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', color: '#666666', textTransform: 'uppercase' }}>Desc / Referencia</th>
+                                    <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', color: '#666666', textTransform: 'uppercase' }}>Usuario</th>
+                                    <th style={{ padding: '12px 20px', textAlign: 'right', fontSize: '12px', color: '#666666', textTransform: 'uppercase' }}>Monto</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {movimientos.map(mov => (
                                     <tr key={mov.id} style={{ borderBottom: '1px solid #F3F4F6' }}>
                                         <td style={{ padding: '14px 20px', fontSize: '13px' }}>
-                                            <div style={{ color: '#1A1A2E', fontWeight: 500 }}>{new Date(mov.fecha).toLocaleDateString()}</div>
-                                            <div style={{ fontSize: '11px', color: '#9CA3AF' }}>{mov.hora}</div>
+                                            <div style={{ color: '#333333', fontWeight: 500 }}>{new Date(mov.fecha).toLocaleDateString()}</div>
+                                            <div style={{ fontSize: '11px', color: '#999999' }}>{mov.hora}</div>
                                         </td>
                                         <td style={{ padding: '14px 20px', fontSize: '13px' }}>
                                             <span style={{ fontWeight: 500, color: '#374151' }}>{mov.cuenta?.nombre}</span>
                                         </td>
-                                        <td style={{ padding: '14px 20px', fontSize: '13px', color: '#6B7280' }}>{mov.categoria}</td>
-                                        <td style={{ padding: '14px 20px', fontSize: '13px', color: '#6B7280' }}>
+                                        <td style={{ padding: '14px 20px', fontSize: '13px', color: '#666666' }}>{mov.categoria}</td>
+                                        <td style={{ padding: '14px 20px', fontSize: '13px', color: '#666666' }}>
                                             <div>{mov.descripcion || '-'}</div>
                                             {mov.referencia && (
                                                 <div style={{ fontSize: '11px', color: '#4F46E5', fontWeight: 600, marginTop: '2px' }}>
@@ -479,7 +479,7 @@ export default function CajaBancos() {
                                                 </div>
                                             )}
                                         </td>
-                                        <td style={{ padding: '14px 20px', fontSize: '13px', color: '#6B7280' }}>{mov.usuario?.username || '-'}</td>
+                                        <td style={{ padding: '14px 20px', fontSize: '13px', color: '#666666' }}>{mov.usuario?.username || '-'}</td>
                                         <td style={{ padding: '14px 20px', textAlign: 'right', fontSize: '14px', fontWeight: 700, color: mov.tipo === 'entrada' ? '#16A34A' : '#DC2626' }}>
                                             {mov.tipo === 'entrada' ? '+' : '-'} {formatPesos(mov.monto)}
                                         </td>
@@ -487,7 +487,7 @@ export default function CajaBancos() {
                                 ))}
                                 {!loading && movimientos.length === 0 && (
                                     <tr>
-                                        <td colSpan="6" style={{ padding: '40px', textAlign: 'center', color: '#6B7280' }}>
+                                        <td colSpan="6" style={{ padding: '40px', textAlign: 'center', color: '#666666' }}>
                                             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
                                                 <AlertCircle size={40} opacity={0.3} />
                                                 <div>No se encontraron movimientos para los filtros seleccionados</div>
@@ -505,53 +505,53 @@ export default function CajaBancos() {
             {viewMode === 'cierres' && (
                 <div id="caja-cierres-history" style={{ backgroundColor: '#fff', borderRadius: '12px', border: '1px solid #E5E7EB', overflow: 'hidden' }}>
                     <div style={{ padding: '16px 20px', borderBottom: '1px solid #E5E7EB', backgroundColor: '#F9FAFB' }}>
-                        <h2 style={{ fontSize: '15px', fontWeight: 600, color: '#1A1A2E' }}>Historial de Cierres Diarios</h2>
+                        <h2 style={{ fontSize: '15px', fontWeight: 600, color: '#333333' }}>Historial de Cierres Diarios</h2>
                     </div>
                     <div style={{ overflowX: 'auto' }}>
                         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                             <thead>
                                 <tr style={{ backgroundColor: '#F9FAFB', borderBottom: '1px solid #E5E7EB' }}>
-                                    <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', color: '#6B7280', textTransform: 'uppercase' }}>Fecha</th>
-                                    <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', color: '#6B7280', textTransform: 'uppercase' }}>Estado</th>
-                                    <th style={{ padding: '12px 20px', textAlign: 'right', fontSize: '12px', color: '#6B7280', textTransform: 'uppercase' }}>Saldo Inicial</th>
-                                    <th style={{ padding: '12px 20px', textAlign: 'right', fontSize: '12px', color: '#6B7280', textTransform: 'uppercase' }}>Ingresos</th>
-                                    <th style={{ padding: '12px 20px', textAlign: 'right', fontSize: '12px', color: '#6B7280', textTransform: 'uppercase' }}>Egresos</th>
-                                    <th style={{ padding: '12px 20px', textAlign: 'right', fontSize: '12px', color: '#6B7280', textTransform: 'uppercase' }}>Saldo Teórico</th>
-                                    <th style={{ padding: '12px 20px', textAlign: 'right', fontSize: '12px', color: '#6B7280', textTransform: 'uppercase' }}>Saldo Físico</th>
-                                    <th style={{ padding: '12px 20px', textAlign: 'right', fontSize: '12px', color: '#6B7280', textTransform: 'uppercase' }}>Dif.</th>
-                                    <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', color: '#6B7280', textTransform: 'uppercase' }}>Operador</th>
+                                    <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', color: '#666666', textTransform: 'uppercase' }}>Fecha</th>
+                                    <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', color: '#666666', textTransform: 'uppercase' }}>Estado</th>
+                                    <th style={{ padding: '12px 20px', textAlign: 'right', fontSize: '12px', color: '#666666', textTransform: 'uppercase' }}>Saldo Inicial</th>
+                                    <th style={{ padding: '12px 20px', textAlign: 'right', fontSize: '12px', color: '#666666', textTransform: 'uppercase' }}>Ingresos</th>
+                                    <th style={{ padding: '12px 20px', textAlign: 'right', fontSize: '12px', color: '#666666', textTransform: 'uppercase' }}>Egresos</th>
+                                    <th style={{ padding: '12px 20px', textAlign: 'right', fontSize: '12px', color: '#666666', textTransform: 'uppercase' }}>Saldo Teórico</th>
+                                    <th style={{ padding: '12px 20px', textAlign: 'right', fontSize: '12px', color: '#666666', textTransform: 'uppercase' }}>Saldo Físico</th>
+                                    <th style={{ padding: '12px 20px', textAlign: 'right', fontSize: '12px', color: '#666666', textTransform: 'uppercase' }}>Dif.</th>
+                                    <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', color: '#666666', textTransform: 'uppercase' }}>Operador</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {cierres.map(c => (
                                     <tr key={c.id} style={{ borderBottom: '1px solid #F3F4F6' }}>
-                                        <td style={{ padding: '14px 20px', fontSize: '13px', color: '#1A1A2E', fontWeight: 500 }}>
+                                        <td style={{ padding: '14px 20px', fontSize: '13px', color: '#333333', fontWeight: 500 }}>
                                             {new Date(c.fechaApertura).toLocaleDateString()}
-                                            <div style={{ fontSize: '11px', color: '#9CA3AF' }}>{new Date(c.fechaApertura).toLocaleTimeString()}</div>
+                                            <div style={{ fontSize: '11px', color: '#999999' }}>{new Date(c.fechaApertura).toLocaleTimeString()}</div>
                                         </td>
                                         <td style={{ padding: '14px 20px' }}>
                                             <span style={{
                                                 padding: '4px 8px', borderRadius: '4px', fontSize: '11px', fontWeight: 600,
                                                 backgroundColor: c.estado === 'abierta' ? '#DCFCE7' : '#F3F4F6',
-                                                color: c.estado === 'abierta' ? '#16A34A' : '#6B7280'
+                                                color: c.estado === 'abierta' ? '#16A34A' : '#666666'
                                             }}>
                                                 {c.estado.toUpperCase()}
                                             </span>
                                         </td>
-                                        <td style={{ padding: '14px 20px', textAlign: 'right', fontSize: '13px', color: '#6B7280' }}>{formatPesos(c.saldoInicial)}</td>
+                                        <td style={{ padding: '14px 20px', textAlign: 'right', fontSize: '13px', color: '#666666' }}>{formatPesos(c.saldoInicial)}</td>
                                         <td style={{ padding: '14px 20px', textAlign: 'right', fontSize: '13px', color: '#16A34A' }}>+{formatPesos(c.totalIngresos)}</td>
                                         <td style={{ padding: '14px 20px', textAlign: 'right', fontSize: '13px', color: '#DC2626' }}>-{formatPesos(c.totalEgresos)}</td>
-                                        <td style={{ padding: '14px 20px', textAlign: 'right', fontSize: '13px', fontWeight: 600, color: '#1E3A5F' }}>{formatPesos(c.saldoTeorico)}</td>
-                                        <td style={{ padding: '14px 20px', textAlign: 'right', fontSize: '13px', color: '#1A1A2E' }}>{c.saldoReal !== null ? formatPesos(c.saldoReal) : '-'}</td>
+                                        <td style={{ padding: '14px 20px', textAlign: 'right', fontSize: '13px', fontWeight: 600, color: '#F2A900' }}>{formatPesos(c.saldoTeorico)}</td>
+                                        <td style={{ padding: '14px 20px', textAlign: 'right', fontSize: '13px', color: '#333333' }}>{c.saldoReal !== null ? formatPesos(c.saldoReal) : '-'}</td>
                                         <td style={{ padding: '14px 20px', textAlign: 'right', fontSize: '13px', fontWeight: 600, color: c.diferencia < 0 ? '#DC2626' : c.diferencia > 0 ? '#D97706' : '#16A34A' }}>
                                             {c.saldoReal !== null ? formatPesos(c.diferencia) : '-'}
                                         </td>
-                                        <td style={{ padding: '14px 20px', fontSize: '13px', color: '#6B7280' }}>{c.usuario?.username || '-'}</td>
+                                        <td style={{ padding: '14px 20px', fontSize: '13px', color: '#666666' }}>{c.usuario?.username || '-'}</td>
                                     </tr>
                                 ))}
                                 {cierres.length === 0 && (
                                     <tr>
-                                        <td colSpan="9" style={{ padding: '40px', textAlign: 'center', color: '#6B7280' }}>No hay registros de cierres de caja.</td>
+                                        <td colSpan="9" style={{ padding: '40px', textAlign: 'center', color: '#666666' }}>No hay registros de cierres de caja.</td>
                                     </tr>
                                 )}
                             </tbody>
@@ -600,7 +600,7 @@ export default function CajaBancos() {
                     <div>
                         <label style={{ display: 'block', fontSize: '13px', fontWeight: 500, marginBottom: '6px' }}>Saldo Inicial</label>
                         <div style={{ position: 'relative' }}>
-                            <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#6B7280', fontWeight: 600, fontSize: '14px' }}>$</span>
+                            <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#666666', fontWeight: 600, fontSize: '14px' }}>$</span>
                             <input
                                 type="text"
                                 value={nuevaCuenta.saldoInicial ? parseInt(nuevaCuenta.saldoInicial).toLocaleString('es-CO') : ''}
@@ -673,7 +673,7 @@ export default function CajaBancos() {
                     <div>
                         <label style={{ display: 'block', fontSize: '13px', fontWeight: 500, marginBottom: '6px' }}>Monto *</label>
                         <div style={{ position: 'relative' }}>
-                            <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#6B7280', fontWeight: 600, fontSize: '14px' }}>$</span>
+                            <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#666666', fontWeight: 600, fontSize: '14px' }}>$</span>
                             <input
                                 type="text"
                                 value={nuevoMov.monto ? parseInt(nuevoMov.monto).toLocaleString('es-CO') : ''}
@@ -715,10 +715,10 @@ export default function CajaBancos() {
                                 <option value="">Seleccione...</option>
                                 {cuentas.map(c => <option key={`orig-${c.id}`} value={c.id}>{c.nombre}{c.tipo === 'banco' && c.numeroCuenta ? ` ****${c.numeroCuenta}` : ''} — {formatPesos(c.saldoActual)}</option>)}
                             </select>
-                            {nuevoTraslado.origenId && (() => { const c = cuentas.find(x => x.id === parseInt(nuevoTraslado.origenId)); return c ? <div style={{ fontSize: '12px', color: '#6B7280', marginTop: '4px' }}>Disponible: <strong style={{ color: c.saldoActual >= 0 ? '#16A34A' : '#DC2626' }}>{formatPesos(c.saldoActual)}</strong></div> : null; })()}
+                            {nuevoTraslado.origenId && (() => { const c = cuentas.find(x => x.id === parseInt(nuevoTraslado.origenId)); return c ? <div style={{ fontSize: '12px', color: '#666666', marginTop: '4px' }}>Disponible: <strong style={{ color: c.saldoActual >= 0 ? '#16A34A' : '#DC2626' }}>{formatPesos(c.saldoActual)}</strong></div> : null; })()}
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '20px' }}>
-                            <ArrowRightLeft size={20} color="#9CA3AF" />
+                            <ArrowRightLeft size={20} color="#999999" />
                         </div>
                         <div style={{ flex: 1 }}>
                             <label style={{ display: 'block', fontSize: '13px', fontWeight: 500, marginBottom: '6px' }}>Destino (Entra a) *</label>
@@ -730,13 +730,13 @@ export default function CajaBancos() {
                                 <option value="">Seleccione...</option>
                                 {cuentas.map(c => <option key={`dest-${c.id}`} value={c.id}>{c.nombre}{c.tipo === 'banco' && c.numeroCuenta ? ` ****${c.numeroCuenta}` : ''} — {formatPesos(c.saldoActual)}</option>)}
                             </select>
-                            {nuevoTraslado.destinoId && (() => { const c = cuentas.find(x => x.id === parseInt(nuevoTraslado.destinoId)); return c ? <div style={{ fontSize: '12px', color: '#6B7280', marginTop: '4px' }}>Saldo actual: <strong>{formatPesos(c.saldoActual)}</strong></div> : null; })()}
+                            {nuevoTraslado.destinoId && (() => { const c = cuentas.find(x => x.id === parseInt(nuevoTraslado.destinoId)); return c ? <div style={{ fontSize: '12px', color: '#666666', marginTop: '4px' }}>Saldo actual: <strong>{formatPesos(c.saldoActual)}</strong></div> : null; })()}
                         </div>
                     </div>
                     <div>
                         <label style={{ display: 'block', fontSize: '13px', fontWeight: 500, marginBottom: '6px' }}>Monto a trasladar *</label>
                         <div style={{ position: 'relative' }}>
-                            <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#6B7280', fontWeight: 600, fontSize: '14px' }}>$</span>
+                            <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#666666', fontWeight: 600, fontSize: '14px' }}>$</span>
                             <input
                                 type="text"
                                 value={nuevoTraslado.monto ? parseInt(nuevoTraslado.monto).toLocaleString('es-CO') : ''}
@@ -774,7 +774,7 @@ export default function CajaBancos() {
                 setShowAperturaModal(false);
             }} title="Apertura de Caja">
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', minWidth: '400px' }}>
-                    <div style={{ padding: '12px', backgroundColor: '#EFF6FF', color: '#1E3A5F', borderRadius: '6px', fontSize: '13px', display: 'flex', gap: '8px', alignItems: 'center' }}>
+                    <div style={{ padding: '12px', backgroundColor: '#EFF6FF', color: '#F2A900', borderRadius: '6px', fontSize: '13px', display: 'flex', gap: '8px', alignItems: 'center' }}>
                         <Lock size={16} />
                         <div>
                             <strong>Caja Principal</strong><br />
@@ -784,7 +784,7 @@ export default function CajaBancos() {
                     <div>
                         <label style={{ display: 'block', fontSize: '13px', fontWeight: 500, marginBottom: '6px' }}>Saldo Inicial (Físico en Base) *</label>
                         <div style={{ position: 'relative' }}>
-                            <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#6B7280', fontWeight: 600, fontSize: '14px' }}>$</span>
+                            <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#666666', fontWeight: 600, fontSize: '14px' }}>$</span>
                             <input
                                 type="text"
                                 value={saldoInicialApertura ? parseInt(saldoInicialApertura).toLocaleString('es-CO') : ''}
@@ -814,11 +814,11 @@ export default function CajaBancos() {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', minWidth: '450px' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', padding: '12px', backgroundColor: '#F9FAFB', borderRadius: '6px', border: '1px solid #E5E7EB' }}>
                             <div>
-                                <p style={{ fontSize: '12px', color: '#6B7280', textTransform: 'uppercase', fontWeight: 600 }}>Saldo Inicial</p>
-                                <p style={{ fontSize: '15px', fontWeight: 700, color: '#1A1A2E' }}>{formatPesos(cierreActivo.saldoInicial)}</p>
+                                <p style={{ fontSize: '12px', color: '#666666', textTransform: 'uppercase', fontWeight: 600 }}>Saldo Inicial</p>
+                                <p style={{ fontSize: '15px', fontWeight: 700, color: '#333333' }}>{formatPesos(cierreActivo.saldoInicial)}</p>
                             </div>
                             <div style={{ textAlign: 'right' }}>
-                                <p style={{ fontSize: '12px', color: '#6B7280', textTransform: 'uppercase', fontWeight: 600 }}>Ingresos del día (Est.)</p>
+                                <p style={{ fontSize: '12px', color: '#666666', textTransform: 'uppercase', fontWeight: 600 }}>Ingresos del día (Est.)</p>
                                 <p style={{ fontSize: '15px', fontWeight: 700, color: '#16A34A' }}>Calculado aut.</p>
                             </div>
                         </div>
@@ -831,12 +831,12 @@ export default function CajaBancos() {
                         <div>
                             <label style={{ display: 'block', fontSize: '13px', fontWeight: 500, marginBottom: '6px' }}>Saldo Real (Dinero Físico Comprobado) *</label>
                             <div style={{ position: 'relative' }}>
-                                <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#6B7280', fontWeight: 600, fontSize: '14px' }}>$</span>
+                                <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#666666', fontWeight: 600, fontSize: '14px' }}>$</span>
                                 <input
                                     type="text"
                                     value={saldoRealCierre ? parseInt(saldoRealCierre).toLocaleString('es-CO') : ''}
                                     onChange={(e) => setSaldoRealCierre(e.target.value.replace(/\D/g, ''))}
-                                    style={{ width: '100%', padding: '14px 12px 14px 28px', border: '1px solid #E5E7EB', borderRadius: '6px', fontSize: '20px', fontWeight: 700, color: '#1E3A5F' }}
+                                    style={{ width: '100%', padding: '14px 12px 14px 28px', border: '1px solid #E5E7EB', borderRadius: '6px', fontSize: '20px', fontWeight: 700, color: '#F2A900' }}
                                     placeholder="0"
                                 />
                             </div>

@@ -156,7 +156,7 @@ export default function WhatsApp() {
                         : <WifiOff size={24} style={{ color: statusConfig.text }} />}
                     <div style={{ flex: 1 }}>
                         <p style={{ fontSize: '16px', fontWeight: 700, color: statusConfig.text }}>{statusConfig.label}</p>
-                        <p style={{ fontSize: '12px', color: '#6B7280', marginTop: '2px' }}>{statusConfig.sub}</p>
+                        <p style={{ fontSize: '12px', color: '#666666', marginTop: '2px' }}>{statusConfig.sub}</p>
                     </div>
                     {status.status === 'DISCONNECTED' && !isSessionExpired && (
                         <Button size="sm" onClick={handleConnect} disabled={loading}>Vincular</Button>
@@ -177,13 +177,13 @@ export default function WhatsApp() {
             {isQR && status.qr && (
                 <div style={{
                     display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px',
-                    padding: '32px', backgroundColor: '#fff', border: '1px solid #E2E5EA', borderRadius: '12px'
+                    padding: '32px', backgroundColor: '#fff', border: '1px solid #E0E0E0', borderRadius: '12px'
                 }}>
-                    <p style={{ fontSize: '14px', fontWeight: 600, color: '#1A1A2E' }}>Escanea este codigo con WhatsApp:</p>
+                    <p style={{ fontSize: '14px', fontWeight: 600, color: '#333333' }}>Escanea este codigo con WhatsApp:</p>
                     <div style={{ padding: '16px', backgroundColor: '#fff', borderRadius: '8px', border: '2px solid #E5E7EB' }}>
                         <QRCodeSVG value={status.qr} size={250} />
                     </div>
-                    <p style={{ fontSize: '12px', color: '#6B7280', textAlign: 'center', lineHeight: '1.5' }}>
+                    <p style={{ fontSize: '12px', color: '#666666', textAlign: 'center', lineHeight: '1.5' }}>
                         Abre WhatsApp en tu celular &gt; Ajustes &gt; Dispositivos vinculados &gt; Vincular un dispositivo
                     </p>
                 </div>
@@ -191,10 +191,10 @@ export default function WhatsApp() {
 
             {/* Numero Destino */}
             <div style={{
-                padding: '24px', backgroundColor: '#fff', border: '1px solid #E2E5EA', borderRadius: '12px'
+                padding: '24px', backgroundColor: '#fff', border: '1px solid #E0E0E0', borderRadius: '12px'
             }}>
-                <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#1A1A2E', marginBottom: '4px' }}>Numero Destino de Alertas</h3>
-                <p style={{ fontSize: '12px', color: '#6B7280', marginBottom: '16px' }}>
+                <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#333333', marginBottom: '4px' }}>Numero Destino de Alertas</h3>
+                <p style={{ fontSize: '12px', color: '#666666', marginBottom: '16px' }}>
                     Las alertas de cuentas por cobrar se enviaran a este numero. Use codigo de pais (ej: 573001234567)
                 </p>
                 <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-end' }}>
@@ -225,10 +225,10 @@ export default function WhatsApp() {
 
             {/* Enviar Resumen */}
             <div style={{
-                padding: '24px', backgroundColor: '#fff', border: '1px solid #E2E5EA', borderRadius: '12px'
+                padding: '24px', backgroundColor: '#fff', border: '1px solid #E0E0E0', borderRadius: '12px'
             }}>
-                <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#1A1A2E', marginBottom: '4px' }}>Enviar Resumen de Cobranza</h3>
-                <p style={{ fontSize: '12px', color: '#6B7280', marginBottom: '16px' }}>
+                <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#333333', marginBottom: '4px' }}>Enviar Resumen de Cobranza</h3>
+                <p style={{ fontSize: '12px', color: '#666666', marginBottom: '16px' }}>
                     Envia un resumen de todas las cuentas por cobrar (vencidas y pendientes) al numero configurado.
                 </p>
 

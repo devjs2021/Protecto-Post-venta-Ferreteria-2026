@@ -64,7 +64,7 @@ export default function ReturnModal({
                                             <tr key={item.id} style={{ borderBottom: '1px solid #F3F4F6' }}>
                                                 <td style={{ padding: '10px' }}>
                                                     <div style={{ fontWeight: 500 }}>{item.nombre}</div>
-                                                    <div style={{ fontSize: '11px', color: '#9CA3AF' }}>
+                                                    <div style={{ fontSize: '11px', color: '#999999' }}>
                                                         {formatPesos(item.precioUnit)} c/u
                                                         {item.esServicio && <span style={{ marginLeft: '8px', color: '#D97706' }}>Servicio</span>}
                                                     </div>
@@ -111,7 +111,7 @@ export default function ReturnModal({
                                                             </button>
                                                         </div>
                                                     ) : (
-                                                        <span style={{ color: '#9CA3AF' }}>-</span>
+                                                        <span style={{ color: '#999999' }}>-</span>
                                                     )}
                                                 </td>
                                             </tr>
@@ -180,7 +180,7 @@ export default function ReturnModal({
                                     flex: 1,
                                     padding: '10px',
                                     borderRadius: '8px',
-                                    border: returnMethod === method.id ? '2px solid #1E3A5F' : '1px solid #E5E7EB',
+                                    border: returnMethod === method.id ? '2px solid #F2A900' : '1px solid #E5E7EB',
                                     backgroundColor: returnMethod === method.id ? '#F0F7FF' : '#fff',
                                     cursor: 'pointer',
                                     display: 'flex',
@@ -189,8 +189,8 @@ export default function ReturnModal({
                                     gap: '4px'
                                 }}
                             >
-                                <method.icon size={18} color={returnMethod === method.id ? '#1E3A5F' : '#6B7280'} />
-                                <span style={{ fontSize: '12px', fontWeight: 600, color: returnMethod === method.id ? '#1E3A5F' : '#6B7280' }}>
+                                <method.icon size={18} color={returnMethod === method.id ? '#F2A900' : '#666666'} />
+                                <span style={{ fontSize: '12px', fontWeight: 600, color: returnMethod === method.id ? '#F2A900' : '#666666' }}>
                                     {method.label}
                                 </span>
                             </button>

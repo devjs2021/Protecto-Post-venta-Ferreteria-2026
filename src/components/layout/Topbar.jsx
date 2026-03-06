@@ -61,7 +61,7 @@ export default function Topbar({ isMobile, onMenuToggle }) {
             height: '60px',
             minHeight: '60px',
             backgroundColor: '#FFFFFF',
-            borderBottom: '1px solid #E2E5EA',
+            borderBottom: '1px solid #E0E0E0',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -78,7 +78,7 @@ export default function Topbar({ isMobile, onMenuToggle }) {
                     style={{
                         padding: '8px', borderRadius: '8px',
                         border: 'none', background: 'transparent',
-                        cursor: 'pointer', color: '#1E3A5F',
+                        cursor: 'pointer', color: '#F2A900',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         flexShrink: 0
                     }}
@@ -89,28 +89,28 @@ export default function Topbar({ isMobile, onMenuToggle }) {
 
             {/* Search */}
             <div style={{ position: 'relative', width: '100%', maxWidth: isMobile ? '100%' : (searchFocused ? '480px' : '380px'), transition: 'max-width 200ms ease', display: isMobile ? 'none' : 'block' }}>
-                <Search size={16} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: '#9CA3AF' }} />
+                <Search size={16} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: '#999999' }} />
                 <input
                     type="text"
                     placeholder="Buscar productos, clientes, ventas..."
                     style={{
                         width: '100%', paddingLeft: '40px', paddingRight: '16px',
                         paddingTop: '9px', paddingBottom: '9px',
-                        fontSize: '13px', backgroundColor: '#F0F2F5',
-                        border: '1px solid #E2E5EA', borderRadius: '8px',
+                        fontSize: '13px', backgroundColor: '#F5F5F5',
+                        border: '1px solid #E0E0E0', borderRadius: '8px',
                         outline: 'none', fontFamily: 'inherit',
                         transition: 'all 200ms ease'
                     }}
                     onFocus={(e) => {
                         setSearchFocused(true);
                         e.target.style.backgroundColor = '#FFFFFF';
-                        e.target.style.borderColor = '#3B82F6';
-                        e.target.style.boxShadow = '0 0 0 2px rgba(59, 130, 246, 0.2)';
+                        e.target.style.borderColor = '#F2A900';
+                        e.target.style.boxShadow = '0 0 0 2px rgba(242, 169, 0, 0.2)';
                     }}
                     onBlur={(e) => {
                         setSearchFocused(false);
-                        e.target.style.backgroundColor = '#F0F2F5';
-                        e.target.style.borderColor = '#E2E5EA';
+                        e.target.style.backgroundColor = '#F5F5F5';
+                        e.target.style.borderColor = '#E0E0E0';
                         e.target.style.boxShadow = 'none';
                     }}
                 />
@@ -118,7 +118,7 @@ export default function Topbar({ isMobile, onMenuToggle }) {
 
             {/* Navbar Branding */}
             <div style={{ display: 'none', lg: 'block', marginRight: 'auto', marginLeft: '20px' }} className="topbar-branding">
-                <span style={{ fontSize: '18px', fontWeight: 800, color: '#1E3A5F', letterSpacing: '0.5px' }}>
+                <span style={{ fontSize: '18px', fontWeight: 800, color: '#F2A900', letterSpacing: '0.5px' }}>
                     FERRETERIA LA ESQUINA DEL PROGRESO
                 </span>
             </div>
@@ -128,12 +128,12 @@ export default function Topbar({ isMobile, onMenuToggle }) {
                 <button style={{
                     display: 'flex', alignItems: 'center', gap: '6px',
                     padding: '7px 14px', fontSize: '12px', fontWeight: 600,
-                    color: 'white', backgroundColor: '#1E3A5F',
+                    color: '#333333', backgroundColor: '#F2A900',
                     borderRadius: '8px', border: 'none', cursor: 'pointer',
                     transition: 'background 150ms'
                 }}
-                    onMouseEnter={e => e.currentTarget.style.backgroundColor = '#2C4F7C'}
-                    onMouseLeave={e => e.currentTarget.style.backgroundColor = '#1E3A5F'}
+                    onMouseEnter={e => e.currentTarget.style.backgroundColor = '#D4950A'}
+                    onMouseLeave={e => e.currentTarget.style.backgroundColor = '#F2A900'}
                 >
                     <Wallet size={14} /><span>Caja</span>
                 </button>
@@ -142,9 +142,9 @@ export default function Topbar({ isMobile, onMenuToggle }) {
                     <button style={{
                         position: 'relative', padding: '8px', borderRadius: '8px',
                         border: 'none', background: 'transparent', cursor: 'pointer',
-                        color: '#6B7280', transition: 'all 150ms'
+                        color: '#666666', transition: 'all 150ms'
                     }}
-                        onMouseEnter={e => e.currentTarget.style.backgroundColor = '#EBF0F7'}
+                        onMouseEnter={e => e.currentTarget.style.backgroundColor = '#FFF8E7'}
                         onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
                     >
                         <Bell size={18} />
@@ -159,24 +159,24 @@ export default function Topbar({ isMobile, onMenuToggle }) {
                 }>
                     {(close) => (
                         <div style={{ width: '300px' }}>
-                            <div style={{ padding: '12px 16px', borderBottom: '1px solid #E2E5EA', backgroundColor: '#EBF0F7' }}>
-                                <h4 style={{ fontSize: '12px', fontWeight: 600, color: '#1E3A5F', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Notificaciones</h4>
+                            <div style={{ padding: '12px 16px', borderBottom: '1px solid #E0E0E0', backgroundColor: '#FFF8E7' }}>
+                                <h4 style={{ fontSize: '12px', fontWeight: 600, color: '#D4950A', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Notificaciones</h4>
                             </div>
                             {notifications.length === 0 ? (
-                                <div style={{ padding: '20px', textAlign: 'center', color: '#9CA3AF', fontSize: '13px' }}>
+                                <div style={{ padding: '20px', textAlign: 'center', color: '#999999', fontSize: '13px' }}>
                                     No hay notificaciones nuevas
                                 </div>
                             ) : (
                                 notifications.map(n => (
-                                    <div key={n.id} onClick={close} style={{ padding: '12px 16px', cursor: 'pointer', borderBottom: '1px solid #F0F2F5', transition: 'background 100ms' }}
-                                        onMouseEnter={e => e.currentTarget.style.backgroundColor = '#EBF0F7'}
+                                    <div key={n.id} onClick={close} style={{ padding: '12px 16px', cursor: 'pointer', borderBottom: '1px solid #F0F0F0', transition: 'background 100ms' }}
+                                        onMouseEnter={e => e.currentTarget.style.backgroundColor = '#FFF8E7'}
                                         onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
                                     >
                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
-                                            <p style={{ fontSize: '13px', fontWeight: 600, color: n.type === 'danger' ? '#DC2626' : '#1A1A2E' }}>{n.title}</p>
-                                            <span style={{ fontSize: '10px', color: '#9CA3AF' }}>{n.time}</span>
+                                            <p style={{ fontSize: '13px', fontWeight: 600, color: n.type === 'danger' ? '#DC2626' : '#333333' }}>{n.title}</p>
+                                            <span style={{ fontSize: '10px', color: '#999999' }}>{n.time}</span>
                                         </div>
-                                        <p style={{ fontSize: '11px', color: '#6B7280', marginTop: '2px' }}>{n.message}</p>
+                                        <p style={{ fontSize: '11px', color: '#666666', marginTop: '2px' }}>{n.message}</p>
                                     </div>
                                 ))
                             )}
@@ -191,31 +191,31 @@ export default function Topbar({ isMobile, onMenuToggle }) {
                         border: 'none', background: 'transparent', cursor: 'pointer',
                         transition: 'all 150ms'
                     }}
-                        onMouseEnter={e => e.currentTarget.style.backgroundColor = '#EBF0F7'}
+                        onMouseEnter={e => e.currentTarget.style.backgroundColor = '#FFF8E7'}
                         onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
                     >
                         <div style={{
                             width: '32px', height: '32px', borderRadius: '8px',
-                            backgroundColor: '#1E3A5F', display: 'flex',
+                            backgroundColor: '#F2A900', display: 'flex',
                             alignItems: 'center', justifyContent: 'center'
                         }}>
-                            <span style={{ fontSize: '11px', fontWeight: 700, color: 'white' }}>
+                            <span style={{ fontSize: '11px', fontWeight: 700, color: '#333333' }}>
                                 {userInitials}
                             </span>
                         </div>
                         {!isMobile && (
                             <div style={{ textAlign: 'left' }}>
-                                <p style={{ fontSize: '12px', fontWeight: 600, color: '#1A1A2E' }}>{currentUser.name}</p>
-                                <p style={{ fontSize: '10px', color: '#9CA3AF' }}>{currentUser.role}</p>
+                                <p style={{ fontSize: '12px', fontWeight: 600, color: '#333333' }}>{currentUser.name}</p>
+                                <p style={{ fontSize: '10px', color: '#999999' }}>{currentUser.role}</p>
                             </div>
                         )}
-                        {!isMobile && <ChevronDown size={12} style={{ color: '#9CA3AF' }} />}
+                        {!isMobile && <ChevronDown size={12} style={{ color: '#999999' }} />}
                     </button>
                 }>
                     {(close) => (
                         <>
                             <DropdownItem icon={Settings} onClick={() => { close(); navigate('/configuracion'); }}>Configuración</DropdownItem>
-                            <div style={{ borderTop: '1px solid #E2E5EA', margin: '4px 0' }} />
+                            <div style={{ borderTop: '1px solid #E0E0E0', margin: '4px 0' }} />
                             <DropdownItem icon={LogOut} danger onClick={() => { close(); handleLogout(); }}>Cerrar Sesión</DropdownItem>
                         </>
                     )}

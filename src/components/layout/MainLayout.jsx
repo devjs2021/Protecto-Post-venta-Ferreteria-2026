@@ -6,10 +6,8 @@ import Topbar from './Topbar';
 export default function MainLayout() {
     const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    // Responsive width logic
     const sidebarWidth = sidebarCollapsed ? 72 : 250;
 
-    // Check if we are on mobile (very basic check, Tailwind classes would be better but let's stick to inline style logic for consistency with original)
     const [isMobile, setIsMobile] = React.useState(window.innerWidth < 1024);
 
     React.useEffect(() => {
@@ -26,7 +24,7 @@ export default function MainLayout() {
         <div style={{
             display: 'flex',
             height: '100vh',
-            backgroundColor: '#F0F2F5',
+            backgroundColor: '#F5F5F5',
             overflow: 'hidden'
         }}>
             <Sidebar
@@ -48,13 +46,11 @@ export default function MainLayout() {
                 height: '100vh',
                 overflow: 'hidden'
             }}>
-                {/* Header fijo */}
                 <Topbar
                     isMobile={isMobile}
                     onMenuToggle={() => setSidebarOpen(true)}
                 />
 
-                {/* Contenido scrollable */}
                 <main style={{
                     flex: 1,
                     overflowY: 'auto',

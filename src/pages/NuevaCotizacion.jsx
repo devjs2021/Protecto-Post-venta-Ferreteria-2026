@@ -258,13 +258,13 @@ Esta sujeto a verificación de precios, plazo máximo 15 días.`);
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <button onClick={() => navigate('/cotizaciones')} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}>
-                        <ArrowLeft size={20} color="#6B7280" />
+                        <ArrowLeft size={20} color="#666666" />
                     </button>
                     <div>
-                        <h1 style={{ fontSize: '22px', fontWeight: 700, color: '#1A1A2E' }}>
+                        <h1 style={{ fontSize: '22px', fontWeight: 700, color: '#333333' }}>
                             {isEditing ? 'Editar Cotización' : 'Nueva Cotización'}
                         </h1>
-                        <p style={{ fontSize: '13px', color: '#6B7280', marginTop: '2px' }}>
+                        <p style={{ fontSize: '13px', color: '#666666', marginTop: '2px' }}>
                             {new Date().toLocaleDateString('es-CO')}
                         </p>
                     </div>
@@ -289,7 +289,7 @@ Esta sujeto a verificación de precios, plazo máximo 15 días.`);
                     <div>
                         <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, marginBottom: '4px' }}>Cliente</label>
                         <div style={{ position: 'relative' }}>
-                            <Search size={14} style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', color: '#9CA3AF' }} />
+                            <Search size={14} style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', color: '#999999' }} />
                             <input
                                 type="text"
                                 placeholder="Buscar cliente..."
@@ -300,7 +300,7 @@ Esta sujeto a verificación de precios, plazo máximo 15 días.`);
                                 style={{ width: '100%', padding: '10px 30px 10px 32px', border: '1px solid #E5E7EB', borderRadius: '8px', fontSize: '14px', outline: 'none', boxSizing: 'border-box' }}
                             />
                             {clienteId && (
-                                <button onClick={() => { setClienteId(''); setClienteSearch(''); }} style={{ position: 'absolute', right: '8px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#9CA3AF' }}>
+                                <button onClick={() => { setClienteId(''); setClienteSearch(''); }} style={{ position: 'absolute', right: '8px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#999999' }}>
                                     <X size={14} />
                                 </button>
                             )}
@@ -311,7 +311,7 @@ Esta sujeto a verificación de precios, plazo máximo 15 días.`);
                                             style={{ padding: '10px 12px', cursor: 'pointer', fontSize: '13px', borderBottom: '1px solid #F3F4F6' }}
                                             onMouseOver={e => e.target.style.backgroundColor = '#F3F4F6'} onMouseOut={e => e.target.style.backgroundColor = 'transparent'}>
                                             <div style={{ fontWeight: 600, pointerEvents: 'none' }}>{c.nombre}</div>
-                                            <div style={{ fontSize: '11px', color: '#6B7280', pointerEvents: 'none' }}>{c.documento} {c.telefono ? `• ${c.telefono}` : ''}</div>
+                                            <div style={{ fontSize: '11px', color: '#666666', pointerEvents: 'none' }}>{c.documento} {c.telefono ? `• ${c.telefono}` : ''}</div>
                                         </div>
                                     ))}
                                 </div>
@@ -361,7 +361,7 @@ Esta sujeto a verificación de precios, plazo máximo 15 días.`);
                     <tbody>
                         {items.map((item, index) => (
                             <tr key={item.id} style={{ borderBottom: '1px solid #F3F4F6' }}>
-                                <td style={{ padding: '8px', color: '#6B7280' }}>{index + 1}</td>
+                                <td style={{ padding: '8px', color: '#666666' }}>{index + 1}</td>
                                 <td style={{ padding: '4px', position: 'relative' }}>
                                     <div style={{ position: 'relative' }}>
                                         <input
@@ -375,7 +375,7 @@ Esta sujeto a verificación de precios, plazo máximo 15 días.`);
                                         />
                                         {item.productoId && (
                                             <button onClick={() => { handleItemChange(item.id, 'productoId', ''); handleItemChange(item.id, 'productoSearch', ''); }}
-                                                style={{ position: 'absolute', right: '4px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#9CA3AF', padding: '2px' }}>
+                                                style={{ position: 'absolute', right: '4px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#999999', padding: '2px' }}>
                                                 <X size={12} />
                                             </button>
                                         )}
@@ -386,7 +386,7 @@ Esta sujeto a verificación de precios, plazo máximo 15 días.`);
                                                         style={{ padding: '8px 10px', cursor: 'pointer', fontSize: '12px', borderBottom: '1px solid #F3F4F6' }}
                                                         onMouseOver={e => e.target.style.backgroundColor = '#F3F4F6'} onMouseOut={e => e.target.style.backgroundColor = 'transparent'}>
                                                         <div style={{ fontWeight: 600, color: '#111827', pointerEvents: 'none' }}>{p.nombre}</div>
-                                                        <div style={{ fontSize: '10px', color: '#6B7280', pointerEvents: 'none' }}>Código: {p.codigo || 'N/A'} • {formatPesos(p.precio)}</div>
+                                                        <div style={{ fontSize: '10px', color: '#666666', pointerEvents: 'none' }}>Código: {p.codigo || 'N/A'} • {formatPesos(p.precio)}</div>
                                                     </div>
                                                 ))}
                                             </div>
@@ -430,18 +430,18 @@ Esta sujeto a verificación de precios, plazo máximo 15 días.`);
                 <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
                     <div style={{ textAlign: 'right', fontSize: '13px', minWidth: '280px' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', gap: '40px', marginBottom: '4px' }}>
-                            <span style={{ color: '#6B7280' }}>Total Bruto:</span>
+                            <span style={{ color: '#666666' }}>Total Bruto:</span>
                             <span style={{ fontWeight: 600 }}>{formatPesos(totales.bruto)}</span>
                         </div>
                         {totales.descuentos > 0 && (
                             <div style={{ display: 'flex', justifyContent: 'space-between', gap: '40px', marginBottom: '4px' }}>
-                                <span style={{ color: '#6B7280' }}>Descuentos:</span>
+                                <span style={{ color: '#666666' }}>Descuentos:</span>
                                 <span style={{ fontWeight: 600 }}>-{formatPesos(totales.descuentos)}</span>
                             </div>
                         )}
                         {/* IVA Toggle */}
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px', marginTop: '4px' }}>
-                            <span style={{ color: '#6B7280', fontSize: '13px', fontWeight: 500 }}>IVA:</span>
+                            <span style={{ color: '#666666', fontSize: '13px', fontWeight: 500 }}>IVA:</span>
                             <div style={{ display: 'flex', backgroundColor: '#F3F4F6', padding: '2px', borderRadius: '6px' }}>
                                 {[0, 5, 19].map(tasa => (
                                     <button
@@ -451,7 +451,7 @@ Esta sujeto a verificación de precios, plazo máximo 15 días.`);
                                             padding: '4px 10px', fontSize: '12px', fontWeight: 600, borderRadius: '4px',
                                             border: 'none', cursor: 'pointer',
                                             backgroundColor: ivaTasa === tasa ? '#fff' : 'transparent',
-                                            color: ivaTasa === tasa ? '#111827' : '#6B7280',
+                                            color: ivaTasa === tasa ? '#111827' : '#666666',
                                             boxShadow: ivaTasa === tasa ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
                                             transition: 'all 0.1s'
                                         }}
@@ -462,16 +462,16 @@ Esta sujeto a verificación de precios, plazo máximo 15 días.`);
                             </div>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', gap: '40px', marginBottom: '4px' }}>
-                            <span style={{ color: '#6B7280' }}>Subtotal:</span>
+                            <span style={{ color: '#666666' }}>Subtotal:</span>
                             <span style={{ fontWeight: 600 }}>{formatPesos(totales.subtotal)}</span>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', gap: '40px', marginBottom: '4px' }}>
-                            <span style={{ color: '#6B7280' }}>IVA ({ivaTasa}%):</span>
+                            <span style={{ color: '#666666' }}>IVA ({ivaTasa}%):</span>
                             <span style={{ fontWeight: 600 }}>{formatPesos(totales.iva)}</span>
                         </div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', gap: '40px', marginTop: '8px', paddingTop: '8px', borderTop: '2px solid #1A1A2E' }}>
-                            <span style={{ fontSize: '16px', fontWeight: 700, color: '#1A1A2E' }}>Total:</span>
-                            <span style={{ fontSize: '16px', fontWeight: 700, color: '#1A1A2E' }}>{formatPesos(totales.neto)}</span>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', gap: '40px', marginTop: '8px', paddingTop: '8px', borderTop: '2px solid #333333' }}>
+                            <span style={{ fontSize: '16px', fontWeight: 700, color: '#333333' }}>Total:</span>
+                            <span style={{ fontSize: '16px', fontWeight: 700, color: '#333333' }}>{formatPesos(totales.neto)}</span>
                         </div>
                     </div>
                 </div>
@@ -494,7 +494,7 @@ Esta sujeto a verificación de precios, plazo máximo 15 días.`);
                 <div>
                     <div id="cotizacion-pdf-content" style={{ padding: '30px', backgroundColor: '#fff', fontFamily: 'Arial, sans-serif', color: '#000', maxWidth: '700px', margin: '0 auto' }}>
                         {/* Header */}
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px', borderBottom: '2px solid #1A1A2E', paddingBottom: '15px' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px', borderBottom: '2px solid #333333', paddingBottom: '15px' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                                 <img src={logoSrc} alt="Logo" style={{ width: '50px', height: '50px', borderRadius: '50%', objectFit: 'cover' }} />
                                 <div>
@@ -505,7 +505,7 @@ Esta sujeto a verificación de precios, plazo máximo 15 días.`);
                                 </div>
                             </div>
                             <div style={{ textAlign: 'right' }}>
-                                <h3 style={{ fontSize: '18px', fontWeight: 700, margin: 0, color: '#1A1A2E' }}>COTIZACIÓN</h3>
+                                <h3 style={{ fontSize: '18px', fontWeight: 700, margin: 0, color: '#333333' }}>COTIZACIÓN</h3>
                                 {isEditing && <p style={{ fontSize: '12px', margin: '4px 0', color: '#444' }}>No. COT-{editId?.toString().padStart(4, '0')}</p>}
                                 <p style={{ fontSize: '12px', margin: '4px 0', color: '#444' }}>Fecha: {new Date().toLocaleDateString('es-CO')}</p>
                                 {validaHasta && <p style={{ fontSize: '12px', margin: '4px 0', color: '#444' }}>Válida hasta: {new Date(validaHasta + 'T12:00:00').toLocaleDateString('es-CO')}</p>}
@@ -532,7 +532,7 @@ Esta sujeto a verificación de precios, plazo máximo 15 días.`);
                         {/* Items table */}
                         <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '15px', fontSize: '12px' }}>
                             <thead>
-                                <tr style={{ backgroundColor: '#1A1A2E', color: '#fff' }}>
+                                <tr style={{ backgroundColor: '#333333', color: '#fff' }}>
                                     <th style={{ padding: '8px', textAlign: 'left' }}>#</th>
                                     <th style={{ padding: '8px', textAlign: 'left' }}>Descripción</th>
                                     <th style={{ padding: '8px', textAlign: 'right' }}>Cant.</th>
@@ -576,7 +576,7 @@ Esta sujeto a verificación de precios, plazo máximo 15 días.`);
                                         <span>IVA ({ivaTasa}%):</span><span>{formatPesos(totales.iva)}</span>
                                     </div>
                                 )}
-                                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', fontSize: '16px', fontWeight: 700, borderTop: '2px solid #1A1A2E', marginTop: '4px' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', fontSize: '16px', fontWeight: 700, borderTop: '2px solid #333333', marginTop: '4px' }}>
                                     <span>TOTAL:</span><span>{formatPesos(totales.neto)}</span>
                                 </div>
                             </div>

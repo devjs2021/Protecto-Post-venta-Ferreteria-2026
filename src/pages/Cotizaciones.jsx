@@ -6,7 +6,7 @@ import { formatPesos } from '../utils/currency';
 import api from '../api/client';
 
 const estadoConfig = {
-    borrador: { label: 'Borrador', color: '#6B7280', bg: '#F3F4F6' },
+    borrador: { label: 'Borrador', color: '#666666', bg: '#F3F4F6' },
     enviada: { label: 'Enviada', color: '#2563EB', bg: '#EFF6FF' },
     aceptada: { label: 'Aceptada', color: '#16A34A', bg: '#F0FDF4' },
     rechazada: { label: 'Rechazada', color: '#DC2626', bg: '#FEF2F2' }
@@ -75,8 +75,8 @@ export default function Cotizaciones() {
             {/* Header */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div>
-                    <h1 style={{ fontSize: '22px', fontWeight: 700, color: '#1A1A2E' }}>Cotizaciones</h1>
-                    <p style={{ fontSize: '13px', color: '#6B7280', marginTop: '4px' }}>Gestión de presupuestos y cotizaciones</p>
+                    <h1 style={{ fontSize: '22px', fontWeight: 700, color: '#333333' }}>Cotizaciones</h1>
+                    <p style={{ fontSize: '13px', color: '#666666', marginTop: '4px' }}>Gestión de presupuestos y cotizaciones</p>
                 </div>
                 <Button onClick={() => navigate('/nueva-cotizacion')}>
                     <Plus size={16} style={{ marginRight: '6px' }} />Nueva Cotización
@@ -86,13 +86,13 @@ export default function Cotizaciones() {
             {/* Summary Cards */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
                 {[
-                    { label: 'Total', value: resumen.total, color: '#1A1A2E' },
-                    { label: 'Borradores', value: resumen.borrador, color: '#6B7280' },
+                    { label: 'Total', value: resumen.total, color: '#333333' },
+                    { label: 'Borradores', value: resumen.borrador, color: '#666666' },
                     { label: 'Enviadas', value: resumen.enviada, color: '#2563EB' },
                     { label: 'Aceptadas', value: resumen.aceptada, color: '#16A34A' }
                 ].map((card, i) => (
                     <div key={i} style={{ backgroundColor: '#fff', padding: '20px', borderRadius: '12px', border: '1px solid #E5E7EB' }}>
-                        <div style={{ fontSize: '12px', color: '#6B7280', marginBottom: '4px' }}>{card.label}</div>
+                        <div style={{ fontSize: '12px', color: '#666666', marginBottom: '4px' }}>{card.label}</div>
                         <div style={{ fontSize: '24px', fontWeight: 700, color: card.color }}>{card.value}</div>
                     </div>
                 ))}
@@ -101,7 +101,7 @@ export default function Cotizaciones() {
             {/* Filters */}
             <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
                 <div style={{ position: 'relative', flex: 1, maxWidth: '400px' }}>
-                    <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#9CA3AF' }} />
+                    <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#999999' }} />
                     <input
                         type="text"
                         placeholder="Buscar por cliente o número..."
@@ -125,7 +125,7 @@ export default function Cotizaciones() {
 
             {/* Table */}
             {loading ? (
-                <div style={{ padding: '60px', textAlign: 'center', color: '#6B7280' }}>Cargando...</div>
+                <div style={{ padding: '60px', textAlign: 'center', color: '#666666' }}>Cargando...</div>
             ) : (
                 <div style={{ backgroundColor: '#fff', borderRadius: '12px', border: '1px solid #E5E7EB', overflow: 'hidden' }}>
                     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
@@ -148,10 +148,10 @@ export default function Cotizaciones() {
                                         onClick={() => navigate(`/editar-cotizacion/${cot.id}`)}
                                         onMouseOver={e => e.currentTarget.style.backgroundColor = '#F9FAFB'}
                                         onMouseOut={e => e.currentTarget.style.backgroundColor = 'transparent'}>
-                                        <td style={{ padding: '12px 16px', fontWeight: 600, color: '#1E3A5F' }}>{cot.numeroCotizacion}</td>
+                                        <td style={{ padding: '12px 16px', fontWeight: 600, color: '#F2A900' }}>{cot.numeroCotizacion}</td>
                                         <td style={{ padding: '12px 16px' }}>{cot.cliente?.nombre || 'Sin cliente'}</td>
-                                        <td style={{ padding: '12px 16px', color: '#6B7280' }}>{new Date(cot.createdAt).toLocaleDateString('es-CO')}</td>
-                                        <td style={{ padding: '12px 16px', color: '#6B7280' }}>{cot.validaHasta ? new Date(cot.validaHasta + 'T12:00:00').toLocaleDateString('es-CO') : '-'}</td>
+                                        <td style={{ padding: '12px 16px', color: '#666666' }}>{new Date(cot.createdAt).toLocaleDateString('es-CO')}</td>
+                                        <td style={{ padding: '12px 16px', color: '#666666' }}>{cot.validaHasta ? new Date(cot.validaHasta + 'T12:00:00').toLocaleDateString('es-CO') : '-'}</td>
                                         <td style={{ padding: '12px 16px', textAlign: 'right', fontWeight: 700 }}>{formatPesos(cot.total)}</td>
                                         <td style={{ padding: '12px 16px', textAlign: 'center' }}>
                                             <span style={{ fontSize: '11px', fontWeight: 700, color: est.color, backgroundColor: est.bg, padding: '3px 10px', borderRadius: '12px' }}>
@@ -191,7 +191,7 @@ export default function Cotizaciones() {
                             })}
                             {filtered.length === 0 && (
                                 <tr>
-                                    <td colSpan="7" style={{ padding: '60px', textAlign: 'center', color: '#6B7280' }}>
+                                    <td colSpan="7" style={{ padding: '60px', textAlign: 'center', color: '#666666' }}>
                                         No se encontraron cotizaciones
                                     </td>
                                 </tr>

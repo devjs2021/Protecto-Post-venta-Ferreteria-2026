@@ -96,7 +96,7 @@ export default function PaymentPanel({
                 {/* Totals and tax selector */}
                 <div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                        <span style={{ fontSize: '13px', color: '#6B7280', fontWeight: 500 }}>IVA:</span>
+                        <span style={{ fontSize: '13px', color: '#666666', fontWeight: 500 }}>IVA:</span>
                         <div style={{ display: 'flex', backgroundColor: '#F3F4F6', padding: '2px', borderRadius: '6px' }}>
                             {[0, 5, 19].map(tasa => (
                                 <button
@@ -110,7 +110,7 @@ export default function PaymentPanel({
                                         border: 'none',
                                         cursor: 'pointer',
                                         backgroundColor: ivaTasa === tasa ? '#fff' : 'transparent',
-                                        color: ivaTasa === tasa ? '#111827' : '#6B7280',
+                                        color: ivaTasa === tasa ? '#111827' : '#666666',
                                         boxShadow: ivaTasa === tasa ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
                                         transition: 'all 0.1s'
                                     }}
@@ -121,11 +121,11 @@ export default function PaymentPanel({
                         </div>
                     </div>
 
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: '#6B7280', marginBottom: '4px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: '#666666', marginBottom: '4px' }}>
                         <span>Subtotal</span>
                         <span>{formatPesos(subtotal)}</span>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: '#6B7280', marginBottom: '6px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: '#666666', marginBottom: '6px' }}>
                         <span>IVA ({ivaTasa}%)</span>
                         <span>{formatPesos(iva)}</span>
                     </div>
@@ -144,7 +144,7 @@ export default function PaymentPanel({
                             style={{
                                 padding: '6px 4px',
                                 borderRadius: '6px',
-                                border: paymentMethod === method.id ? '2px solid #1E3A5F' : '1px solid #E5E7EB',
+                                border: paymentMethod === method.id ? '2px solid #F2A900' : '1px solid #E5E7EB',
                                 backgroundColor: paymentMethod === method.id ? '#F0F7FF' : '#fff',
                                 cursor: 'pointer',
                                 display: 'flex',
@@ -156,8 +156,8 @@ export default function PaymentPanel({
                                 justifyContent: 'center'
                             }}
                         >
-                            <method.icon size={14} color={paymentMethod === method.id ? '#1E3A5F' : '#9CA3AF'} />
-                            <span style={{ fontSize: '10px', fontWeight: 600, color: paymentMethod === method.id ? '#1E3A5F' : '#6B7280' }}>
+                            <method.icon size={14} color={paymentMethod === method.id ? '#F2A900' : '#999999'} />
+                            <span style={{ fontSize: '10px', fontWeight: 600, color: paymentMethod === method.id ? '#F2A900' : '#666666' }}>
                                 {method.label}
                             </span>
                         </button>
@@ -245,7 +245,7 @@ export default function PaymentPanel({
                                                 onMouseLeave={e => e.currentTarget.style.backgroundColor = '#fff'}
                                             >
                                                 <div style={{ fontSize: '13px', fontWeight: 500 }}>{client.nombre}</div>
-                                                <div style={{ fontSize: '11px', color: '#6B7280' }}>{client.documento}</div>
+                                                <div style={{ fontSize: '11px', color: '#666666' }}>{client.documento}</div>
                                             </div>
                                         ))}
                                     </div>
@@ -399,7 +399,7 @@ export default function PaymentPanel({
                                                     maxWidth: '160px',
                                                     padding: '8px',
                                                     fontSize: '12px',
-                                                    color: '#6B7280',
+                                                    color: '#666666',
                                                     display: 'flex',
                                                     alignItems: 'center',
                                                     whiteSpace: 'nowrap',
@@ -506,7 +506,7 @@ export default function PaymentPanel({
                                             </div>
                                         )}
                                         {remainingBalance > 0 && !hasError && (
-                                            <div style={{ color: '#6B7280', fontSize: '11px', marginTop: '4px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                            <div style={{ color: '#666666', fontSize: '11px', marginTop: '4px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                                                 Saldo: {formatPesos(remainingBalance)}
                                             </div>
                                         )}
@@ -543,7 +543,7 @@ export default function PaymentPanel({
                                 padding: '8px 12px',
                                 fontSize: '12px',
                                 fontWeight: 600,
-                                color: canAddMorePayments(total, multiplePayments) ? '#4F46E5' : '#9CA3AF',
+                                color: canAddMorePayments(total, multiplePayments) ? '#4F46E5' : '#999999',
                                 backgroundColor: canAddMorePayments(total, multiplePayments) ? '#EEF2FF' : '#F3F4F6',
                                 border: 'none',
                                 borderRadius: '6px',
@@ -589,7 +589,7 @@ export default function PaymentPanel({
                                             onMouseLeave={e => e.currentTarget.style.backgroundColor = '#fff'}
                                         >
                                             <div style={{ fontSize: '13px', fontWeight: 500 }}>{client.nombre}</div>
-                                            <div style={{ fontSize: '11px', color: '#6B7280' }}>{client.documento}</div>
+                                            <div style={{ fontSize: '11px', color: '#666666' }}>{client.documento}</div>
                                         </div>
                                     ))}
                                 </div>

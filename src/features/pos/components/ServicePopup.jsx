@@ -20,7 +20,7 @@ export default function ServicePopup({ service, editName, editPrice, setEditName
                 <div>
                     <label style={{ display: 'block', fontSize: '13px', fontWeight: 500, marginBottom: '6px' }}>Precio</label>
                     <div style={{ position: 'relative' }}>
-                        <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#6B7280', fontWeight: 600, fontSize: '14px' }}>$</span>
+                        <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#666666', fontWeight: 600, fontSize: '14px' }}>$</span>
                         <input
                             type="text"
                             value={editPrice ? parseInt(editPrice).toLocaleString('es-CO') : ''}

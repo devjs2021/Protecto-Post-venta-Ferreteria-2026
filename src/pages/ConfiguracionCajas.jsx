@@ -102,18 +102,18 @@ export default function ConfiguracionCajas() {
             <div id="cajas-form" style={{ display: 'flex', flexDirection: 'column', gap: '24px', maxWidth: '800px' }}>
                 <div id="cajas-form-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                     <div>
-                        <h2 style={{ fontSize: '20px', fontWeight: 700, color: '#1A1A2E' }}>
+                        <h2 style={{ fontSize: '20px', fontWeight: 700, color: '#333333' }}>
                             {editingCaja ? 'Editar Caja' : 'Crear Nueva Caja'}
                         </h2>
-                        <p style={{ fontSize: '13px', color: '#6B7280' }}>Configura los accesos y numeraciones del punto de venta</p>
+                        <p style={{ fontSize: '13px', color: '#666666' }}>Configura los accesos y numeraciones del punto de venta</p>
                     </div>
-                    <button onClick={confirmCancel} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px', color: '#9CA3AF' }}><X size={20} /></button>
+                    <button onClick={confirmCancel} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px', color: '#999999' }}><X size={20} /></button>
                 </div>
 
-                <div style={{ backgroundColor: '#fff', border: '1px solid #E2E5EA', borderRadius: '10px', padding: '24px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                <div style={{ backgroundColor: '#fff', border: '1px solid #E0E0E0', borderRadius: '10px', padding: '24px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
                     {/* Datos Generales */}
                     <div>
-                        <h3 style={{ fontSize: '15px', fontWeight: 600, color: '#1A1A2E', marginBottom: '16px', borderBottom: '1px solid #E2E5EA', paddingBottom: '8px' }}>1. Datos generales de tu caja</h3>
+                        <h3 style={{ fontSize: '15px', fontWeight: 600, color: '#333333', marginBottom: '16px', borderBottom: '1px solid #E0E0E0', paddingBottom: '8px' }}>1. Datos generales de tu caja</h3>
                         <div id="cajas-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                             <Input label="Nombre de la caja *" value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} placeholder="Ej: Caja Principal 01" maxLength={100} />
                             <Select label="Sucursal *" value={formData.sucursal} onChange={e => setFormData({ ...formData, sucursal: e.target.value })} options={[{ value: '', label: 'Seleccione...' }, ...ubicaciones.map(u => ({ value: u.nombre, label: u.nombre }))]} />
@@ -129,7 +129,7 @@ export default function ConfiguracionCajas() {
 
                     {/* Precios y Descuentos */}
                     <div>
-                        <h3 style={{ fontSize: '15px', fontWeight: 600, color: '#1A1A2E', marginBottom: '16px', borderBottom: '1px solid #E2E5EA', paddingBottom: '8px' }}>2. Precios y Descuentos</h3>
+                        <h3 style={{ fontSize: '15px', fontWeight: 600, color: '#333333', marginBottom: '16px', borderBottom: '1px solid #E0E0E0', paddingBottom: '8px' }}>2. Precios y Descuentos</h3>
                         <div style={{ maxWidth: '400px' }}>
                             <Select label="Maneja Descuentos" value={formData.manejaDescuentos} onChange={e => setFormData({ ...formData, manejaDescuentos: e.target.value })} options={[{ value: 'porcentaje', label: 'Por Porcentaje (%)' }, { value: 'valor', label: 'Por Valor (Monto)' }]} />
                         </div>
@@ -165,38 +165,38 @@ export default function ConfiguracionCajas() {
                 <Button icon={Plus} onClick={() => initForm()}>Crear Caja</Button>
             </div>
 
-            <div id="cajas-config-table" style={{ backgroundColor: '#fff', border: '1px solid #E2E5EA', borderRadius: '10px', overflow: 'hidden' }}>
+            <div id="cajas-config-table" style={{ backgroundColor: '#fff', border: '1px solid #E0E0E0', borderRadius: '10px', overflow: 'hidden' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                     <thead>
                         <tr style={{ backgroundColor: '#F9FAFB', borderBottom: '1px solid #E5E7EB' }}>
-                            <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#6B7280', textTransform: 'uppercase' }}>Nombre de Caja</th>
-                            <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#6B7280', textTransform: 'uppercase' }}>Sucursal</th>
-                            <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#6B7280', textTransform: 'uppercase' }}>Estado Sesión</th>
-                            <th style={{ padding: '12px 20px', textAlign: 'right', fontSize: '12px', fontWeight: 600, color: '#6B7280', textTransform: 'uppercase' }}>Acciones</th>
+                            <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#666666', textTransform: 'uppercase' }}>Nombre de Caja</th>
+                            <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#666666', textTransform: 'uppercase' }}>Sucursal</th>
+                            <th style={{ padding: '12px 20px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#666666', textTransform: 'uppercase' }}>Estado Sesión</th>
+                            <th style={{ padding: '12px 20px', textAlign: 'right', fontSize: '12px', fontWeight: 600, color: '#666666', textTransform: 'uppercase' }}>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         {cajas.map(c => (
-                            <tr key={c.id} style={{ borderBottom: '1px solid #F0F2F5' }}>
-                                <td style={{ padding: '14px 20px', fontSize: '14px', fontWeight: 600, color: '#1A1A2E' }}>{c.name}</td>
+                            <tr key={c.id} style={{ borderBottom: '1px solid #F5F5F5' }}>
+                                <td style={{ padding: '14px 20px', fontSize: '14px', fontWeight: 600, color: '#333333' }}>{c.name}</td>
                                 <td style={{ padding: '14px 20px', fontSize: '13px', color: '#4B5563' }}>{c.sucursal}</td>
                                 <td style={{ padding: '14px 20px' }}>
                                     {c.status === 'abierta' ? (
                                         <Badge variant="success">Abierta</Badge>
                                     ) : (
-                                        <Badge variant="default" style={{ backgroundColor: '#F3F4F6', color: '#6B7280' }}>Turno Cerrado</Badge>
+                                        <Badge variant="default" style={{ backgroundColor: '#F3F4F6', color: '#666666' }}>Turno Cerrado</Badge>
                                     )}
                                 </td>
                                 <td style={{ padding: '14px 20px', textAlign: 'right' }}>
                                     <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
-                                        <button onClick={() => initForm(c)} disabled={c.status === 'abierta'} style={{ padding: '6px', borderRadius: '6px', border: '1px solid #E2E5EA', background: '#FFFFFF', cursor: c.status === 'abierta' ? 'not-allowed' : 'pointer', opacity: c.status === 'abierta' ? 0.5 : 1 }}>
-                                            <Edit size={14} style={{ color: '#6B7280' }} />
+                                        <button onClick={() => initForm(c)} disabled={c.status === 'abierta'} style={{ padding: '6px', borderRadius: '6px', border: '1px solid #E0E0E0', background: '#FFFFFF', cursor: c.status === 'abierta' ? 'not-allowed' : 'pointer', opacity: c.status === 'abierta' ? 0.5 : 1 }}>
+                                            <Edit size={14} style={{ color: '#666666' }} />
                                         </button>
-                                        <button style={{ padding: '6px', borderRadius: '6px', border: '1px solid #E2E5EA', background: '#FFFFFF', cursor: 'pointer' }}>
+                                        <button style={{ padding: '6px', borderRadius: '6px', border: '1px solid #E0E0E0', background: '#FFFFFF', cursor: 'pointer' }}>
                                             <ShieldBan size={14} style={{ color: '#EF4444' }} />
                                         </button>
                                     </div>
-                                    {c.status === 'abierta' && <p style={{ fontSize: '10px', color: '#9CA3AF', marginTop: '4px' }}>Cierre turno para editar</p>}
+                                    {c.status === 'abierta' && <p style={{ fontSize: '10px', color: '#999999', marginTop: '4px' }}>Cierre turno para editar</p>}
                                 </td>
                             </tr>
                         ))}

@@ -4,14 +4,14 @@ const variantStyles = {
     success: { backgroundColor: '#DCFCE7', color: '#16A34A' },
     danger: { backgroundColor: '#FEE2E2', color: '#DC2626' },
     warning: { backgroundColor: '#FEF3C7', color: '#D97706' },
-    info: { backgroundColor: '#EBF0F7', color: '#1E3A5F' },
-    neutral: { backgroundColor: '#F0F2F5', color: '#6B7280' },
-    primary: { backgroundColor: '#EBF0F7', color: '#1E3A5F' },
+    info: { backgroundColor: '#FFF8E7', color: '#D4950A' },
+    neutral: { backgroundColor: '#F5F5F5', color: '#666666' },
+    primary: { backgroundColor: '#FFF8E7', color: '#D4950A' },
 };
 
 const dotColors = {
     success: '#16A34A', danger: '#DC2626', warning: '#D97706',
-    info: '#1E3A5F', neutral: '#9CA3AF', primary: '#1E3A5F',
+    info: '#F2A900', neutral: '#999999', primary: '#F2A900',
 };
 
 export default function Badge({ children, variant = 'neutral', dot, className = '' }) {

@@ -27,7 +27,7 @@ export default function ProductGrid({ products, services, recentItems, isSearchi
         <div id="pos-catalog" style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', minHeight: 0 }}>
             {/* Header con título y botón historial */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                <span style={{ fontSize: '14px', fontWeight: 600, color: '#1A1A2E' }}>Productos y Servicios</span>
+                <span style={{ fontSize: '14px', fontWeight: 600, color: '#333333' }}>Productos y Servicios</span>
                 <button
                     onClick={onHistoryClick}
                     style={{
@@ -40,7 +40,7 @@ export default function ProductGrid({ products, services, recentItems, isSearchi
                         border: '1px solid #E5E7EB',
                         borderRadius: '6px',
                         cursor: 'pointer',
-                        color: '#6B7280'
+                        color: '#666666'
                     }}
                 >
                     <History size={12} />
@@ -50,7 +50,7 @@ export default function ProductGrid({ products, services, recentItems, isSearchi
 
             {/* Search */}
             <div style={{ position: 'relative', marginBottom: '8px' }}>
-                <Search size={14} style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', color: '#9CA3AF' }} />
+                <Search size={14} style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', color: '#999999' }} />
                 <input
                     type="text"
                     placeholder="Buscar producto o servicio..."
@@ -62,7 +62,7 @@ export default function ProductGrid({ products, services, recentItems, isSearchi
 
             {/* Products Grid */}
             {loading ? (
-                <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6B7280', fontSize: '13px' }}>
+                <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666666', fontSize: '13px' }}>
                     Cargando...
                 </div>
             ) : (
@@ -88,7 +88,7 @@ export default function ProductGrid({ products, services, recentItems, isSearchi
                                     justifyContent: 'center',
                                     minHeight: 0
                                 }}
-                                onMouseEnter={e => { e.currentTarget.style.borderColor = isService ? '#F59E0B' : '#1E3A5F'; e.currentTarget.style.boxShadow = isService ? '0 2px 8px rgba(245,158,11,0.15)' : '0 2px 8px rgba(0,0,0,0.08)'; }}
+                                onMouseEnter={e => { e.currentTarget.style.borderColor = isService ? '#F59E0B' : '#F2A900'; e.currentTarget.style.boxShadow = isService ? '0 2px 8px rgba(245,158,11,0.15)' : '0 2px 8px rgba(0,0,0,0.08)'; }}
                                 onMouseLeave={e => { e.currentTarget.style.borderColor = isService ? '#FDE68A' : '#E5E7EB'; e.currentTarget.style.boxShadow = 'none'; }}
                             >
                                 <div style={{ flex: 1, minHeight: 0, backgroundColor: isService ? '#FEF3C7' : '#F8FAFC', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '4px' }}>
@@ -100,7 +100,7 @@ export default function ProductGrid({ products, services, recentItems, isSearchi
                                         <Package size={16} color="#94A3B8" />
                                     )}
                                 </div>
-                                <div style={{ fontSize: '10px', fontWeight: 600, color: '#1A1A2E', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                <div style={{ fontSize: '10px', fontWeight: 600, color: '#333333', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                                     {item.nombre}
                                 </div>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '2px' }}>

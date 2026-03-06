@@ -109,14 +109,14 @@ export default function Proveedores() {
         <div id="dir-root" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div id="dir-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div>
-                    <h1 style={{ fontSize: '22px', fontWeight: 700, color: '#1A1A2E' }}>Proveedores</h1>
-                    <p style={{ fontSize: '13px', color: '#6B7280', marginTop: '4px' }}>Gestión de proveedores</p>
+                    <h1 style={{ fontSize: '22px', fontWeight: 700, color: '#333333' }}>Proveedores</h1>
+                    <p style={{ fontSize: '13px', color: '#666666', marginTop: '4px' }}>Gestión de proveedores</p>
                 </div>
                 <Button onClick={() => setShowNew(true)}><Plus size={16} style={{ marginRight: '6px' }} />Nuevo Proveedor</Button>
             </div>
 
             <div id="dir-search" style={{ position: 'relative', maxWidth: '400px' }}>
-                <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#9CA3AF' }} />
+                <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#999999' }} />
                 <input
                     type="text"
                     placeholder="Buscar por nombre o NIT..."
@@ -135,18 +135,18 @@ export default function Proveedores() {
 
             <div id="dir-table" style={{ backgroundColor: '#fff', borderRadius: '12px', border: '1px solid #E5E7EB', overflow: 'hidden' }}>
                 {loading ? (
-                    <div style={{ padding: '40px', textAlign: 'center', color: '#6B7280' }}>
+                    <div style={{ padding: '40px', textAlign: 'center', color: '#666666' }}>
                         Cargando proveedores...
                     </div>
                 ) : (
                     <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                         <thead>
                             <tr style={{ backgroundColor: '#F9FAFB', borderBottom: '1px solid #E5E7EB' }}>
-                                <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#6B7280' }}>Nombre</th>
-                                <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#6B7280' }}>NIT</th>
-                                <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#6B7280' }}>Teléfono</th>
-                                <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#6B7280' }}>Email</th>
-                                <th style={{ padding: '12px 16px', textAlign: 'right', fontSize: '12px', fontWeight: 600, color: '#6B7280' }}>Acciones</th>
+                                <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#666666' }}>Nombre</th>
+                                <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#666666' }}>NIT</th>
+                                <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#666666' }}>Teléfono</th>
+                                <th style={{ padding: '12px 16px', textAlign: 'left', fontSize: '12px', fontWeight: 600, color: '#666666' }}>Email</th>
+                                <th style={{ padding: '12px 16px', textAlign: 'right', fontSize: '12px', fontWeight: 600, color: '#666666' }}>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -157,13 +157,13 @@ export default function Proveedores() {
                                     onClick={() => setSelected(supplier)}
                                 >
                                     <td style={{ padding: '12px 16px', fontSize: '14px', fontWeight: 500 }}>{supplier.nombre}</td>
-                                    <td style={{ padding: '12px 16px', fontSize: '14px', color: '#6B7280' }}>{supplier.nit}</td>
-                                    <td style={{ padding: '12px 16px', fontSize: '14px', color: '#6B7280' }}>{supplier.telefono || '-'}</td>
-                                    <td style={{ padding: '12px 16px', fontSize: '14px', color: '#6B7280' }}>{supplier.email || '-'}</td>
+                                    <td style={{ padding: '12px 16px', fontSize: '14px', color: '#666666' }}>{supplier.nit}</td>
+                                    <td style={{ padding: '12px 16px', fontSize: '14px', color: '#666666' }}>{supplier.telefono || '-'}</td>
+                                    <td style={{ padding: '12px 16px', fontSize: '14px', color: '#666666' }}>{supplier.email || '-'}</td>
                                     <td style={{ padding: '12px 16px', textAlign: 'right' }}>
                                         <button
                                             onClick={(e) => { e.stopPropagation(); setSelected(supplier); setShowEdit(true); }}
-                                            style={{ padding: '6px', background: 'none', border: 'none', cursor: 'pointer', color: '#6B7280' }}
+                                            style={{ padding: '6px', background: 'none', border: 'none', cursor: 'pointer', color: '#666666' }}
                                         >
                                             <Edit size={16} />
                                         </button>
@@ -181,7 +181,7 @@ export default function Proveedores() {
                 )}
 
                 {!loading && filtered.length === 0 && (
-                    <div style={{ padding: '40px', textAlign: 'center', color: '#6B7280' }}>
+                    <div style={{ padding: '40px', textAlign: 'center', color: '#666666' }}>
                         No se encontraron proveedores
                     </div>
                 )}
@@ -310,30 +310,30 @@ export default function Proveedores() {
                     <div style={{ minWidth: '400px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
                             <div style={{ width: '56px', height: '56px', borderRadius: '50%', backgroundColor: '#E5E7EB', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                <Truck size={24} color="#6B7280" />
+                                <Truck size={24} color="#666666" />
                             </div>
                             <div>
                                 <h3 style={{ fontSize: '18px', fontWeight: 600 }}>{selected.nombre}</h3>
-                                <p style={{ fontSize: '14px', color: '#6B7280' }}>NIT: {selected.nit}</p>
+                                <p style={{ fontSize: '14px', color: '#666666' }}>NIT: {selected.nit}</p>
                             </div>
                         </div>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             {selected.telefono && (
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                    <Phone size={18} color="#6B7280" />
+                                    <Phone size={18} color="#666666" />
                                     <span style={{ fontSize: '14px' }}>{selected.telefono}</span>
                                 </div>
                             )}
                             {selected.email && (
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                    <Mail size={18} color="#6B7280" />
+                                    <Mail size={18} color="#666666" />
                                     <span style={{ fontSize: '14px' }}>{selected.email}</span>
                                 </div>
                             )}
                             {selected.direccion && (
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                    <MapPin size={18} color="#6B7280" />
+                                    <MapPin size={18} color="#666666" />
                                     <span style={{ fontSize: '14px' }}>{selected.direccion}</span>
                                 </div>
                             )}

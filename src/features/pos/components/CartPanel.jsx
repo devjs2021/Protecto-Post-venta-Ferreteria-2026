@@ -8,7 +8,7 @@ export default function CartPanel({ cart, clearCart, updateQty, removeFromCart, 
             {/* Cart Header */}
             <div style={{ padding: '16px', borderBottom: '1px solid #E5E7EB', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <ShoppingCart size={20} color="#1A1A2E" />
+                    <ShoppingCart size={20} color="#333333" />
                     <span style={{ fontSize: '16px', fontWeight: 600 }}>Carrito</span>
                 </div>
                 {cart.length > 0 && (
@@ -21,7 +21,7 @@ export default function CartPanel({ cart, clearCart, updateQty, removeFromCart, 
             {/* Cart Items */}
             <div style={{ flex: 1, overflow: 'auto', padding: '16px' }}>
                 {cart.length === 0 ? (
-                    <div style={{ textAlign: 'center', color: '#6B7280', padding: '40px 0' }}>
+                    <div style={{ textAlign: 'center', color: '#666666', padding: '40px 0' }}>
                         <ShoppingCart size={48} style={{ marginBottom: '12px', opacity: 0.3 }} />
                         <p>Carrito vacío</p>
                     </div>
@@ -62,7 +62,7 @@ export default function CartPanel({ cart, clearCart, updateQty, removeFromCart, 
                                     }}>
                                         {item.name}
                                     </div>
-                                    <div style={{ fontSize: '11px', color: '#6B7280', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                    <div style={{ fontSize: '11px', color: '#666666', display: 'flex', alignItems: 'center', gap: '4px' }}>
                                         {formatPesos(item.price)}
                                         {item.isProduct && item.precioMayor && item.precioMayor !== item.originalPrice && (
                                             <button
@@ -73,7 +73,7 @@ export default function CartPanel({ cart, clearCart, updateQty, removeFromCart, 
                                                     borderRadius: '4px',
                                                     border: `1.5px solid ${item.isPrecioMayor ? '#4F46E5' : '#D1D5DB'}`,
                                                     backgroundColor: item.isPrecioMayor ? '#EEF2FF' : '#fff',
-                                                    color: item.isPrecioMayor ? '#4F46E5' : '#9CA3AF',
+                                                    color: item.isPrecioMayor ? '#4F46E5' : '#999999',
                                                     fontSize: '9px',
                                                     fontWeight: 800,
                                                     cursor: 'pointer',
