@@ -5,6 +5,6 @@
     "buildCommand": "DATABASE_URL=postgresql://dummy:d@localhost/d npm install && npm run build"
   },
   "deploy": {
-    "startCommand": "npm start"
+    "startCommand": "node start.cjs"
   }
 }
