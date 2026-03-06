@@ -92,7 +92,7 @@ async function reset() {
     // Resetear configuración a valores genéricos
     await prisma.configuracion.updateMany({
         data: {
-            nombreEmpresa: 'Almacén Refrielectric The Company',
+            nombreEmpresa: 'FERRETERIA LA ESQUINA DEL PROGRESO',
             nit: '1083040891-1',
             direccion: 'Calle 9 Carrera 15 Local 1',
             telefono: '3234465603',

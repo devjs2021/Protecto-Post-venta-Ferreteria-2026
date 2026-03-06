@@ -498,10 +498,10 @@ Esta sujeto a verificación de precios, plazo máximo 15 días.`);
                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                                 <img src={logoSrc} alt="Logo" style={{ width: '50px', height: '50px', borderRadius: '50%', objectFit: 'cover' }} />
                                 <div>
-                                    <h2 style={{ fontSize: '16px', fontWeight: 800, margin: 0 }}>{(config.nombreEmpresa && config.nombreEmpresa !== 'Mi Empresa') ? config.nombreEmpresa : 'SERVITEC THE COMPANY SAS'}</h2>
-                                    <p style={{ fontSize: '11px', margin: '2px 0', color: '#444' }}>Nit {config.nit || '901.923.623-8'}</p>
-                                    <p style={{ fontSize: '11px', margin: '2px 0', color: '#444' }}>{config.direccion || 'CLL 9 CR 15 LC 1 BRR CENTRO'}</p>
-                                    <p style={{ fontSize: '11px', margin: '2px 0', color: '#444' }}>{config.telefono || 'Tel. (605) 3243001873'} • {config.email || 'EDIERAVILA21@GMAIL.COM'}</p>
+                                    <h2 style={{ fontSize: '16px', fontWeight: 800, margin: 0 }}>{(config.nombreEmpresa && config.nombreEmpresa !== 'Mi Empresa') ? config.nombreEmpresa : 'FERRETERIA LA ESQUINA DEL PROGRESO'}</h2>
+                                    <p style={{ fontSize: '11px', margin: '2px 0', color: '#444' }}>Nit {config.nit || '19.591.012-2'}</p>
+                                    <p style={{ fontSize: '11px', margin: '2px 0', color: '#444' }}>{config.direccion || 'CALLE 9A #10-37'}</p>
+                                    <p style={{ fontSize: '11px', margin: '2px 0', color: '#444' }}>{config.telefono || '3014147802'} • {config.email || 'flaesquinadelprogreso@gmail.com'}</p>
                                 </div>
                             </div>
                             <div style={{ textAlign: 'right' }}>

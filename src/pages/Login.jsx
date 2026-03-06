@@ -53,7 +53,7 @@ export default function Login() {
                 <div style={{ textAlign: 'center', marginBottom: '32px' }}>
                     <img
                         src={logoSrc}
-                        alt="Logo REFRIELECTRIC"
+                        alt="Logo FERRETERIA LA ESQUINA DEL PROGRESO"
                         style={{
                             width: '80px',
                             height: '80px',
@@ -65,8 +65,7 @@ export default function Login() {
                             boxShadow: '0 4px 6px -1px rgba(30, 58, 95, 0.2)'
                         }}
                     />
-                    <h1 style={{ fontSize: '24px', fontWeight: 800, color: '#1A1A2E', margin: '0 0 4px 0' }}>REFRIELECTRIC</h1>
-                    <p style={{ fontSize: '14px', color: '#6B7280', margin: 0, fontWeight: 500, letterSpacing: '0.5px' }}>THE COMPANY</p>
+                    <h1 style={{ fontSize: '24px', fontWeight: 800, color: '#1A1A2E', margin: '0 0 4px 0' }}>FERRETERIA LA ESQUINA DEL PROGRESO</h1>
                 </div>
 
                 {error && (
@@ -184,7 +183,7 @@ export default function Login() {
 
             {/* Pequeño footer */}
             <div style={{ position: 'absolute', bottom: '24px', textAlign: 'center', width: '100%', color: '#9CA3AF', fontSize: '12px' }}>
-                REFRIELECTRIC © {new Date().getFullYear()} - THE COMPANY
+                FERRETERIA LA ESQUINA DEL PROGRESO © {new Date().getFullYear()}
             </div>
         </div>
     );

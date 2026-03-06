@@ -119,7 +119,7 @@ export default function Topbar({ isMobile, onMenuToggle }) {
             {/* Navbar Branding */}
             <div style={{ display: 'none', lg: 'block', marginRight: 'auto', marginLeft: '20px' }} className="topbar-branding">
                 <span style={{ fontSize: '18px', fontWeight: 800, color: '#1E3A5F', letterSpacing: '0.5px' }}>
-                    REFRIELECTRIC
+                    FERRETERIA LA ESQUINA DEL PROGRESO
                 </span>
             </div>
 

@@ -103,7 +103,7 @@ async function checkCXCNotifications() {
         if (!phone) return;
         const jid = `${phone}@s.whatsapp.net`;
 
-        const empresa = config?.nombreEmpresa || 'SERVITEC THE COMPANY SAS';
+        const empresa = config?.nombreEmpresa || 'FERRETERIA LA ESQUINA DEL PROGRESO';
         const formatCOP = (v) => new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(v);
 
         // Get date 3 days from now
@@ -2603,7 +2603,7 @@ app.post('/api/whatsapp/prueba', waLimiter, async (req, res) => {
         const jid = `${phone}@s.whatsapp.net`;
 
         const config = await prisma.configuracion.findFirst();
-        const empresa = config?.nombreEmpresa || 'Almacén Refrielectric The Company';
+        const empresa = config?.nombreEmpresa || 'FERRETERIA LA ESQUINA DEL PROGRESO';
 
         const msg = `*MENSAJE DE PRUEBA*\n\n` +
             `Este es un mensaje de prueba del sistema *${empresa}*.\n\n` +
@@ -2646,7 +2646,7 @@ app.post('/api/whatsapp/enviar-recibo', waLimiter, async (req, res) => {
 
         const jid = `${phone}@s.whatsapp.net`;
         const config = await prisma.configuracion.findFirst();
-        const empresa = config?.nombreEmpresa || 'Almacén Refrielectric The Company';
+        const empresa = config?.nombreEmpresa || 'FERRETERIA LA ESQUINA DEL PROGRESO';
         const fmt = (v) => '$' + Math.round(Number(v) || 0).toLocaleString('es-CO');
 
         // Sanitizar filename

@@ -113,7 +113,7 @@ export default function Sidebar({ collapsed, onToggle, isMobile, mobileOpen, onM
                 {!collapsed && (
                     <div style={{ overflow: 'hidden' }}>
                         <h1 style={{ fontSize: '14px', fontWeight: 700, color: '#1A1A2E', whiteSpace: 'nowrap' }}>
-                            REFRIELECTRIC
+                            FERRETERIA LA ESQUINA DEL PROGRESO
                         </h1>
                         <p style={{ fontSize: '11px', color: '#9CA3AF', whiteSpace: 'nowrap', fontWeight: 500 }}>THE COMPANY</p>
                     </div>

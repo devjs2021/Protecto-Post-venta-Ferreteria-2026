@@ -6,13 +6,13 @@ async function main() {
     await prisma.configuracion.upsert({
         where: { id: 1 },
         update: {
-            nombreEmpresa: "MI EMPRESA",
-            nit: "900123456-1"
+            nombreEmpresa: "FERRETERIA LA ESQUINA DEL PROGRESO",
+            nit: "19.591.012-2"
         },
         create: {
             id: 1,
-            nombreEmpresa: "MI EMPRESA",
-            nit: "900123456-1"
+            nombreEmpresa: "FERRETERIA LA ESQUINA DEL PROGRESO",
+            nit: "19.591.012-2"
         }
     });
     console.log("✅ Configuración de empresa actualizada.");
